@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages>
+	<!-- page定义的是一个web页面 -->
+	<!-- keyword属性：页面关键字信息 -->
+	<Page keyword="注册页">
+		<!-- keyword属性：页面关键字信息 -->
+		<!-- by属性：告诉调用者在处理这个UIElement页面元素的时候要根据声明方式去定位此元素 -->
+		<!-- value属性：配的是选择器的值 -->
+		<UIElement keyword="用户名" by="id" value="mobilephone"></UIElement>
+		<UIElement keyword="密码" by="id" value="password"></UIElement>
+		<UIElement keyword="重复密码" by="id" value="pwdconfirm"></UIElement>
+		<UIElement keyword="注册按钮" by="id" value="signup-button"></UIElement>
+		<UIElement keyword="错误提示" by="classname" value="tips"></UIElement>
+	</Page>
+	<Page keyword="登录页">
+		<UIElement keyword="用户名" by="id" value="username"></UIElement>
+		<UIElement keyword="密码" by="id" value="password"></UIElement>
+		<UIElement keyword="登录" by="id" value="login"></UIElement>
+		<UIElement keyword="客户企业（测试）" by="xpath" value="//div[text()='客户企业（测试）']"></UIElement>
+	</Page>
+	<Page keyword="主页">
+		<UIElement keyword="企业" by="xpath" value=".//*[@id='25']/a/p[2]/span"></UIElement>
+	</Page>
+	<Page keyword="收入管理页">
+		<UIElement keyword="收入管理" by="xpath" value="//div[text()='收入管理']"></UIElement>
+		<UIElement keyword="收入发放V2" by="xpath" value="//span[text()='收入发放V2']"></UIElement>
+	</Page>
+	<Page keyword="上传费用单页">
+		<UIElement keyword="上传费用单" by="xpath" value="//span[text()='上传费用单']"></UIElement>
+		<UIElement keyword="上传文件" by="xpath" value="//span[text()='上传文件']"></UIElement>
+	</Page>
+	<Page keyword="校验费用单页">
+		<UIElement keyword="校验费用单" by="xpath" value="//span[text()='校验费用单']"></UIElement>
+		<UIElement keyword="重新校验" by="xpath" value="//button[text()='重新校验']"></UIElement>
+	</Page>
+	<Page keyword="收支分类页">
+		<UIElement keyword="收支分类" by="xpath" value="//div[text()='收支分类']"></UIElement>
+		<UIElement keyword="税前扣除专项管理" by="xpath" value="//span[text()='税前扣除专项管理']"></UIElement>
+		<UIElement keyword="员工导出" by="xpath" value="//span[text()='员工导出']"></UIElement>
+		<UIElement keyword="请输入部门名称" by="xpath" value="//input[@id='_easyui_textbox_input1']"></UIElement>
+	</Page>
+	
+</Pages>

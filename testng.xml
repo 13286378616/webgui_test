@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试套件配置文件的约束是有dtd文件来控制的 -->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- 通过suite元素定义测试套件 -->
+<suite name="后台管理系统" >
+	<!-- 定义一个测试集 -->
+  	<test name="login">
+  		<!-- 一个测试集里可以包含哪些测试类 -->
+    	<classes>
+    	<!-- 配置要执行的测试类的路径 -->
+      		<class name="com.contract.web.cases2.Contractshouye"></class>
+      		<class name="com.contract.web.cases2.ContractLogin"></class>
+      		
+    	</classes>
+    </test> <!-- Test -->
+    <!-- 定义一个参数 -->
+    <parameter name="browserType" value="chrome"></parameter>
+    <!-- 驱动文件的相对路径  -->
+    <parameter name="driverPath" value="src/test/resources/chromedriver.exe"></parameter>
+    <parameter name="loginusername" value="13286378616"></parameter>
+    <parameter name="loginpassword" value="a222222"></parameter>
+  	<!-- 监听器的作用：在测试套件执行过程中，会调用我们声明的监听器去执行 -->
+  	<listeners>
+  		<!--reportng提供的报表生成类 -->
+  		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+  		<!-- 准备监听器，监听执行失败的用例，并截图 -->
+  		<listener class-name="com.contract.web.listener.RepostListener"></listener>
+  	</listeners>
+</suite> <!-- Suite -->

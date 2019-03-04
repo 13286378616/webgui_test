@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages>
+	<!-- page定义的是一个web页面 -->
+	<!-- keyword属性：页面关键字信息 -->
+	<Page keyword="登录页">
+		<!-- keyword属性：页面关键字信息 -->
+		<!-- by属性：告诉调用者在处理这个UIElement页面元素的时候要根据声明方式去定位此元素 -->
+		<!-- value属性：配的是选择器的值 -->
+		<UIElement keyword="请输入用户名" by="xpath" value="//input[@placeholder='请输入用户名']"></UIElement>
+		<UIElement keyword="请输入密码" by="xpath" value="//input[@placeholder='请输入密码(区分大小写)']"></UIElement>
+		<UIElement keyword="登录" by="xpath" value="//span[text()='登录']"></UIElement>
+		<UIElement keyword="手机号码校验" by="xpath" value="//div[text()='请输入11位有效手机号码']"></UIElement>
+		<UIElement keyword="密码校验" by="xpath" value="//div[text()='密码长度必须6-16位']"></UIElement>
+		<UIElement keyword="忘记密码" by="xpath" value="//span[text()='忘记密码']"></UIElement>
+		<UIElement keyword="免费注册" by="xpath" value="//span[text()='免费注册']"></UIElement>
+		<UIElement keyword="扫码登录" by="xpath" value="//div[@class='loginBox']/div/img[text()='免费注册']"></UIElement>
+	</Page>
+	<Page keyword="首页页">
+		<UIElement keyword="首页" by="xpath" value="//div[@class='navTab']/div[1]"></UIElement>
+		<UIElement keyword="产品" by="xpath" value="//div[@class='navTab']/div[2]"></UIElement>
+		<UIElement keyword="解决方案" by="xpath" value="//div[@class='navTab']/div[3]"></UIElement>
+		<UIElement keyword="登录" by="xpath" value="//div[contains(@class,'navBtn')]/a[1]"></UIElement>
+		<UIElement keyword="免费注册" by="xpath" value="//div[contains(@class,'navBtn')]/a[2]"></UIElement>
+	</Page>
+	<Page keyword="注册页">
+		<UIElement keyword="会员注册" by="xpath" value="//div[text()='会员注册']"></UIElement>
+	</Page>
+	
+</Pages>
