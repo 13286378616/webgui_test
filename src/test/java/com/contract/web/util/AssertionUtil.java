@@ -1,6 +1,9 @@
 package com.contract.web.util;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class AssertionUtil {
@@ -23,4 +26,17 @@ public class AssertionUtil {
 	public static void assertE(){
 		
 	}
+	/*判断元素是否存在
+	 * 
+	 * */
+	public static boolean ElementExist(WebDriver driver,By locator){
+		logger.info("判断元素【"+locator+"】是否存在");
+	        try {
+	            driver.findElement(locator);
+	            return true;
+	        } catch (Exception e) {
+	            return false;
+	        }
+
+	    }
 }

@@ -21,9 +21,49 @@
 		<UIElement keyword="解决方案" by="xpath" value="//div[@class='navTab']/div[3]"></UIElement>
 		<UIElement keyword="登录" by="xpath" value="//div[contains(@class,'navBtn')]/a[1]"></UIElement>
 		<UIElement keyword="免费注册" by="xpath" value="//div[contains(@class,'navBtn')]/a[2]"></UIElement>
+		<UIElement keyword="进货" by="xpath" value="//span[text()='进货']"></UIElement>
+		<UIElement keyword="我的" by="xpath" value="//span[text()='我的']"></UIElement>
+		<UIElement keyword="销售" by="xpath" value="//span[text()='销售']"></UIElement>
 	</Page>
 	<Page keyword="注册页">
 		<UIElement keyword="会员注册" by="xpath" value="//div[text()='会员注册']"></UIElement>
 	</Page>
-	
+	<Page keyword="进货页">
+		<UIElement keyword="采购订货单" by="xpath" value="//div[text()='采购订货单']"></UIElement>
+		<UIElement keyword="新单" by="xpath" value="//span[text()='新单N']"></UIElement>
+		<UIElement keyword="否" by="xpath" value="//button[text()='否N']"></UIElement>
+		<UIElement keyword="是" by="xpath" value="//button[text()='是Y']"></UIElement>
+		<UIElement keyword="空单" by="xpath" value="//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"></UIElement>
+		<UIElement keyword="供应商" by="xpath" value="//select[@custom-title='供应商']/../span/span[1]/span"></UIElement>
+		<UIElement keyword="搜索" by="xpath" value="/html/body/span/span/span[1]/input"></UIElement>
+		<UIElement keyword="供应商搜索结果" by="xpath" value="//li[text()='华北供应商_陆涛测试专用']"></UIElement>
+		<UIElement keyword="机构" by="xpath" value="//select[@custom-title='机构']/../span/span[1]/span"></UIElement>
+		<UIElement keyword="机构搜索结果" by="xpath" value="//li[text()='华北机构_陆涛测试专用']/../li"></UIElement>
+		<UIElement keyword="业务员" by="xpath" value="//select[@custom-title='业务员']/../span/span[1]/span"></UIElement>
+		<UIElement keyword="业务员搜索结果" by="xpath" value="//li[text()='陆涛']"></UIElement>
+		<UIElement keyword="经手人" by="xpath" value="//select[@custom-title='经手人']/../span/span[1]/span"></UIElement>
+		<UIElement keyword="经手人搜索结果" by="xpath" value="//li[text()='陆涛']"></UIElement>
+		<UIElement keyword="仓管员" by="xpath" value="//select[@custom-title='仓管员']/../span/span[1]/span"></UIElement>
+		<UIElement keyword="仓管员搜索结果" by="xpath" value="//li[text()='陆涛']"></UIElement>
+		<UIElement keyword="销售负责人" by="xpath" value="//label[text()='销售负责人']/../input"></UIElement>
+		<UIElement keyword="备注" by="xpath" value="//label[text()='备注']/../input"></UIElement>
+		<UIElement keyword="合同交货日期" by="xpath" value="//label[text()='合同交货日期']/../input"></UIElement>
+		<UIElement keyword="品名" by="xpath" value="//input[@placeholder='请输入商品名称']"></UIElement>
+		<UIElement keyword="商品名称" by="xpath" value="//div[text()='火腿测试专用']"></UIElement>
+		<UIElement keyword="件数" by="xpath" value="//label[text()='件数']/../input"></UIElement>
+		<UIElement keyword="散数" by="xpath" value="//label[text()='散数']/../input"></UIElement>
+		<UIElement keyword="件价" by="xpath" value="//label[text()='件价']/../input"></UIElement>
+		<UIElement keyword="件数备注" by="xpath" value="//textarea[@placeholder='备注']"></UIElement>
+		<UIElement keyword="返回" by="xpath" value="//span[text()='返回Z']"></UIElement>
+		<UIElement keyword="采购订货单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[2]"></UIElement>
+		<UIElement keyword="采购进仓单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[5]"></UIElement>
+		<UIElement keyword="采购进仓单" by="xpath" value="//div[text()='采购进仓单']"></UIElement>
+	</Page>
+	<Page keyword='采购进仓单页'>
+		<UIElement keyword="机构" by="id" value="select2-inNote-organData-container"></UIElement>
+		<UIElement keyword="业务员" by="xpath" value="//span[@aria-labelledby='select2-inNote-salesmanData-container']"></UIElement>
+		<UIElement keyword="经手人" by="xpath" value="//span[@aria-labelledby='select2-inNote-operatorData-container']"></UIElement>
+		<UIElement keyword="仓管员" by="xpath" value="//span[@aria-labelledby='select2-inNote-storehousemanagerData-container']"></UIElement>
+		<UIElement keyword="供应商" by="xpath" value="//span[@aria-labelledby='select2-inNote-supplierData-container']"></UIElement>
+	</Page>
 </Pages>
