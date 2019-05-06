@@ -16,6 +16,11 @@ public class AssertionUtil {
 		logger.info("断言比较两者的值是否一致，实际值为：【"+actual+"】，期望值为：【"+expected+"】");
 		Assert.assertEquals(expected, actual,"两者不一致");
 	}
+	
+	public static void assertTextEqualsNoInterruption(String actual,String expected){
+		logger.info("断言比较两者的值是否一致，实际值为：【"+actual+"】，期望值为：【"+expected+"】");
+		 Assertion.verifyEquals(expected, actual,"两者不一致");
+	}
 	/**断言为真的情况
 	 * @param actual
 	 */

@@ -2,14 +2,13 @@
 <!-- 测试套件配置文件的约束是有dtd文件来控制的 -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- 通过suite元素定义测试套件 -->
-<suite name="后台管理系统" >
+<suite name="悦商云平台系统" >
 	<!-- 定义一个测试集 -->
-  	<test name="login">
+  	<test name="test">
   		<!-- 一个测试集里可以包含哪些测试类 -->
     	<classes>
     	<!-- 配置要执行的测试类的路径 -->
-    		<class name="com.contract.web.cases2.PurcharsingOrder"></class>
-      		<class name="com.contract.web.cases2.PurchasingWarehouseReceipt"></class>
+    		<class name="com.contract.web.cases2.FinanceProfitStatement"></class>
     	</classes>
     </test> <!-- Test -->
     <!-- 定义一个参数 -->

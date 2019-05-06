@@ -24,6 +24,7 @@
 		<UIElement keyword="进货" by="xpath" value="//span[text()='进货']"></UIElement>
 		<UIElement keyword="我的" by="xpath" value="//span[text()='我的']"></UIElement>
 		<UIElement keyword="销售" by="xpath" value="//span[text()='销售']"></UIElement>
+		<UIElement keyword="财务" by="xpath" value="//span[text()='财务']"></UIElement>
 	</Page>
 	<Page keyword="注册页">
 		<UIElement keyword="会员注册" by="xpath" value="//div[text()='会员注册']"></UIElement>
@@ -58,6 +59,14 @@
 		<UIElement keyword="采购订货单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[2]"></UIElement>
 		<UIElement keyword="采购进仓单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[5]"></UIElement>
 		<UIElement keyword="采购进仓单" by="xpath" value="//div[text()='采购进仓单']"></UIElement>
+		<UIElement keyword="Excel表导入单据明细" by="xpath" value="//button[@uib-tooltip='Excel表导入单据明细']"></UIElement>
+		<UIElement keyword="浏览" by="id" value="importFile"></UIElement>
+		<UIElement keyword="导入" by="xpath" value="//button[text()='导入']"></UIElement>
+		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
+		<UIElement keyword="导入成功" by="xpath" value="//*[@id='modal-body']/div[2]/div[2]/span"></UIElement>
+		<UIElement keyword="关闭" by="xpath" value="//button[@ng-click='cancelImportModal()']/span"></UIElement>
+		
+		
 	</Page>
 	<Page keyword='采购进仓单页'>
 		<UIElement keyword="机构" by="id" value="select2-inNote-organData-container"></UIElement>
@@ -65,5 +74,33 @@
 		<UIElement keyword="经手人" by="xpath" value="//span[@aria-labelledby='select2-inNote-operatorData-container']"></UIElement>
 		<UIElement keyword="仓管员" by="xpath" value="//span[@aria-labelledby='select2-inNote-storehousemanagerData-container']"></UIElement>
 		<UIElement keyword="供应商" by="xpath" value="//span[@aria-labelledby='select2-inNote-supplierData-container']"></UIElement>
+	</Page>
+	<Page keyword='财务页'>
+		<UIElement keyword="利润表" by="xpath" value="//span[text()='利润表']"></UIElement>
+	</Page>
+	<Page keyword='利润表页'>
+		<UIElement keyword="第一行项目名称" by="xpath" value="//div[@row-index='0']/div[2]"></UIElement>
+		<UIElement keyword="第二行项目名称" by="xpath" value="//div[@row-index='1']/div[2]"></UIElement>
+		<UIElement keyword="第三行项目名称" by="xpath" value="//div[@row-index='2']/div[2]"></UIElement>
+		<UIElement keyword="第四行项目名称" by="xpath" value="//div[@row-index='3']/div[2]"></UIElement>
+		<UIElement keyword="第五行项目名称" by="xpath" value="//div[@row-index='4']/div[2]"></UIElement>
+		<UIElement keyword="第六行项目名称" by="xpath" value="//div[@row-index='5']/div[2]"></UIElement>
+		<UIElement keyword="第七行项目名称" by="xpath" value="//div[@row-index='6']/div[2]"></UIElement>
+		<UIElement keyword="第八行项目名称" by="xpath" value="//div[@row-index='7']/div[2]"></UIElement>
+		<UIElement keyword="第九行项目名称" by="xpath" value="//div[@row-index='8']/div[2]"></UIElement>
+		<UIElement keyword="第十行项目名称" by="xpath" value="//div[@row-index='9']/div[2]"></UIElement>
+		<UIElement keyword="第十一行项目名称" by="xpath" value="//div[@row-index='10']/div[2]"></UIElement>
+		<UIElement keyword="第十二行项目名称" by="xpath" value="//div[@row-index='11']/div[2]"></UIElement>
+		<UIElement keyword="第十三行项目名称" by="xpath" value="//div[@row-index='12']/div[2]"></UIElement>
+		<UIElement keyword="第十四行项目名称" by="xpath" value="//div[@row-index='13']/div[2]"></UIElement>
+		<UIElement keyword="第十五行项目名称" by="xpath" value="//div[@row-index='14']/div[2]"></UIElement>
+		<UIElement keyword="第十六行项目名称" by="xpath" value="//div[@row-index='15']/div[2]"></UIElement>
+		<UIElement keyword="第十七行项目名称" by="xpath" value="//div[@row-index='16']/div[2]"></UIElement>
+		<UIElement keyword="第十八行项目名称" by="xpath" value="//div[@row-index='17']/div[2]"></UIElement>
+		<UIElement keyword="第十九行项目名称" by="xpath" value="//div[@row-index='18']/div[2]"></UIElement>
+	</Page>
+	<Page keyword='资产负债表页'>
+		<UIElement keyword="资产负债表" by="xpath" value="//span[text()='资产负债表']"></UIElement>
+		
 	</Page>
 </Pages>

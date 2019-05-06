@@ -14,7 +14,7 @@ import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
 public class PurcharsingOrder extends BaseElectron {
-	@Test(priority=0)
+	@Test(priority=0,enabled=false)
 	public void successCase() throws Exception{
 		//切换到最新窗口
 		 for (String handle : driver.getWindowHandles())
@@ -33,7 +33,7 @@ public class PurcharsingOrder extends BaseElectron {
 	       }
 		 click(getElement("进货页", "新单"));
 		 Thread.sleep(3000);
-		//判断是否使用旧的单据，这里选择否
+		//判断是否使用旧的单据，这里选择是
 			By xpath;
 			boolean cElement = AssertionUtil.ElementExist(driver,By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
 			System.out.println("空单是否存在："+cElement);
@@ -90,6 +90,9 @@ public class PurcharsingOrder extends BaseElectron {
 		 sendKeys(getElement("进货页", "件数备注"),"自动化测试件数");
 		 //按下确认键
 		 actions.sendKeys(Keys.ENTER).perform();
+		 Thread.sleep(3000);
+		 
+		 
 		 //点击返回
 		 click(getElement("进货页", "返回"));
 		 Thread.sleep(2000);
@@ -98,5 +101,54 @@ public class PurcharsingOrder extends BaseElectron {
 		 System.out.println("订单校验供应商名称:"+suppliername);
 		 AssertionUtil assertionUtil = new AssertionUtil();
 		 assertionUtil.assertTextEquals(suppliername, "华北供应商_陆涛测试专用");
+	}
+	@Test(priority=1)
+	public void ExcelImportDetailSuccessCase() throws Exception{
+		click(getElement("首页页", "进货"));
+		click(getElement("进货页", "采购订货单"));
+		click(getElement("进货页", "新单"));
+		Thread.sleep(2000);
+		//判断是否使用旧的单据，这里选择是
+		By xpath;
+		boolean cElement = AssertionUtil.ElementExist(driver,By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
+		System.out.println("空单是否存在："+cElement);
+		 if (cElement==true) {
+			//存在空单，这里选择是
+			click(getElement("进货页", "否"));
+		} else {
+			System.out.println("没有旧空白单据使用");
+		}
+		Thread.sleep(3000);
+		click(getElement("进货页", "Excel表导入单据明细"));
+		WebElement supplierNullPrompt = getElement("进货页", "提示信息");
+		String nullPrompt = supplierNullPrompt.getText();
+		AssertionUtil.assertTextEquals(nullPrompt, "供应商不能为空");
+		//搜索并选择供应商
+		click(getElement("进货页", "供应商"));
+		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+		Thread.sleep(1000);
+		click(getElement("进货页", "供应商搜索结果")); 
+		click(getElement("进货页", "Excel表导入单据明细"));
+		Thread.sleep(3000);
+		click(getElement("进货页", "浏览"));
+		Thread.sleep(5000);
+		Runtime.getRuntime().exec("D:\\Desktop\\upfile.exe");
+		Thread.sleep(5000);
+		click(getElement("进货页", "导入"));
+		Thread.sleep(1000);
+		//excel表导入明细导入后，提示信息校验
+		WebElement goodsDetailImport = getElement("进货页", "提示信息");
+		String goodsImport = goodsDetailImport.getText();
+		AssertionUtil.assertTextEquals(goodsImport, "导入明细成功");
+		Thread.sleep(3000);
+		//校验导入成功的行数是否为2
+		
+		String importLineNumber = getElement("进货页", "导入成功").getAttribute("textContent");
+		
+		AssertionUtil.assertTextEquals(importLineNumber, "2");
+		System.out.println(driver.findElement(By.xpath("//*[@id='modal-body']/div[2]/div[2]")).getAttribute("textContent"));
+		click(getElement("进货页", "关闭"));
+		
+		
 	}
 }
