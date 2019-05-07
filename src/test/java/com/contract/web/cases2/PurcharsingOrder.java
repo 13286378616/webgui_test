@@ -8,13 +8,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
 public class PurcharsingOrder extends BaseElectron {
-	@Test(priority=0,enabled=false)
+	@Test(priority=0)
 	public void successCase() throws Exception{
 		//切换到最新窗口
 		 for (String handle : driver.getWindowHandles())
@@ -23,6 +24,7 @@ public class PurcharsingOrder extends BaseElectron {
 	         driver.switchTo().window(handle); // Since there are two window handles this would switch to last one(which is second one). You can also explicitly provide the window number.
 	       }
 		Thread.sleep(3000);
+		
 		click(getElement("首页页", "进货"));
 		click(getElement("进货页", "采购订货单"));
 		 Thread.sleep(1000);
@@ -39,7 +41,7 @@ public class PurcharsingOrder extends BaseElectron {
 			System.out.println("空单是否存在："+cElement);
 			 if (cElement==true) {
 				//存在空单，这里选择是
-				click(getElement("进货页", "是"));
+				click(getElement("进货页", "否"));
 			} else {
 				System.out.println("没有旧空白单据使用");
 			}
@@ -68,6 +70,11 @@ public class PurcharsingOrder extends BaseElectron {
 		 sendKeys(getElement("进货页", "销售负责人"), "销售负责人测试");
 		 //备注输入
 		 sendKeys(getElement("进货页", "备注"), "自动化测试");
+		//搜索并选择仓库
+		click(getElement("进货页", "仓库"));
+		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
+		Thread.sleep(3000);
+		click(getElement("进货页", "仓库搜索结果"));
 		 //获取当前系统日期，并输入合同交货日期
 		 SimpleDateFormat dateFormat = new SimpleDateFormat(" yyyy-MM-dd ");
          String currentDate =   dateFormat.format( new Date() );
@@ -98,11 +105,14 @@ public class PurcharsingOrder extends BaseElectron {
 		 Thread.sleep(2000);
 		 //校验是否生成新的订货单
 		 String suppliername = getElement("进货页", "采购订货单校验供应商名称").getAttribute("textContent");
-		 System.out.println("订单校验供应商名称:"+suppliername);
+		 System.out.println("采购订货单校验供应商名称:"+suppliername);
 		 AssertionUtil assertionUtil = new AssertionUtil();
 		 assertionUtil.assertTextEquals(suppliername, "华北供应商_陆涛测试专用");
 	}
-	@Test(priority=1)
+	/*导入商品明细
+	 * 
+	 * */
+	@Test(priority=1,enabled=false)
 	public void ExcelImportDetailSuccessCase() throws Exception{
 		click(getElement("首页页", "进货"));
 		click(getElement("进货页", "采购订货单"));
@@ -132,6 +142,7 @@ public class PurcharsingOrder extends BaseElectron {
 		Thread.sleep(3000);
 		click(getElement("进货页", "浏览"));
 		Thread.sleep(5000);
+		//调用autoit的脚本
 		Runtime.getRuntime().exec("D:\\Desktop\\upfile.exe");
 		Thread.sleep(5000);
 		click(getElement("进货页", "导入"));

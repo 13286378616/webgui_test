@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.contract.web.pojo.UIElement;
+import com.contract.web.util.AssertionUtil;
 import com.contract.web.util.UILibraryUtil;
 
 public class BaseElectron {
@@ -59,6 +60,16 @@ public class BaseElectron {
 		   	Thread.sleep(3000);
 		   	driver.findElement(By.xpath("//span[text()='库存']")).click();*/
 		   	//click(getElement("首页页", "进货"));
+		   	Thread.sleep(6000);
+		  //如果弹出悬浮框“是否打开上次打开状态？”，点击取消
+			boolean stateElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='是否打开上次打开状态？']"));
+			System.out.println("是否弹出悬浮框恢复上次状态"+stateElement);
+			if (stateElement==true) {
+				//弹出悬浮框，点击否
+				click(getElement("首页页", "取消"));
+			} else {
+				System.out.println("没有弹出恢复上次状态悬浮框");
+			}
 	}
 	@AfterSuite
 	public void tearDown() throws InterruptedException{

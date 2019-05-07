@@ -12,7 +12,7 @@ import com.contract.web.util.AssertionUtil;
 import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 public class PurchasingWarehouseReceipt extends BaseElectron{
-	@Test(priority=0)
+	@Test(priority=0,enabled=false)
 	public void successCase() throws Exception{
 		//切换到最新窗口
 		for (String  handle : driver.getWindowHandles()) {
@@ -62,6 +62,11 @@ public class PurchasingWarehouseReceipt extends BaseElectron{
 		click(getElement("进货页", "仓管员搜索结果"));
 		//备注测试
 		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
+		//搜索并选择仓库
+		click(getElement("进货页", "仓库"));
+		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
+		Thread.sleep(1000);
+		click(getElement("进货页", "仓管搜索结果"));
 		//搜索商品
 		 sendKeys(getElement("进货页", "品名"), "火腿测试专用");
 		 Thread.sleep(3000);

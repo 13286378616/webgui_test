@@ -9,6 +9,8 @@
     	<classes>
     	<!-- 配置要执行的测试类的路径 -->
     		<class name="com.contract.web.cases2.FinanceProfitStatement"></class>
+    		<class name="com.contract.web.cases2.PurcharsingOrder"></class>
+    		<class name="com.contract.web.cases2.PurchasingWarehouseReceipt"></class>
     	</classes>
     </test> <!-- Test -->
     <!-- 定义一个参数 -->
