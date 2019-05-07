@@ -46,6 +46,8 @@ public class BaseElectron {
 		     // If you inspect using the Dev Tools, you would notice the second window Dev Tools corresponds to actual page you have opened.
 		     // From here you can write the usual selenium script and it will work.
 		   	driver.findElement(By.xpath("//a[@ng-click='login()']")).click();
+		   	String loginSuccess = getElement("首页页", "我的").getText();
+		   	AssertionUtil.assertTextEquals(loginSuccess, "我的");
 		   	Thread.sleep(3000);
 		   	//跳转后，会生成新的窗口，所以要跳转到最后这一个窗口，才能找到元素
 		   	for (String handle : driver.getWindowHandles())

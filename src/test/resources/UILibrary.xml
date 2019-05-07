@@ -32,6 +32,8 @@
 	</Page>
 	<Page keyword="进货页">
 		<UIElement keyword="采购订货单" by="xpath" value="//div[text()='采购订货单']"></UIElement>
+		<UIElement keyword="采购进仓单" by="xpath" value="//div[text()='采购进仓单']"></UIElement>
+		<UIElement keyword="采购退货单" by="xpath" value="//div[text()='采购退货单']"></UIElement>
 		<UIElement keyword="新单" by="xpath" value="//span[text()='新单N']"></UIElement>
 		<UIElement keyword="否" by="xpath" value="//button[text()='否N']"></UIElement>
 		<UIElement keyword="是" by="xpath" value="//button[text()='是Y']"></UIElement>
@@ -62,22 +64,25 @@
 		<UIElement keyword="采购订货单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[2]"></UIElement>
 		<UIElement keyword="采购订货单单号" by="xpath" value="//label[text()='单号']/following-sibling::input[1]"></UIElement>
 		<UIElement keyword="采购进仓单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[5]"></UIElement>
-		<UIElement keyword="采购进仓单" by="xpath" value="//div[text()='采购进仓单']"></UIElement>
+		<UIElement keyword="采购退货单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[4]"></UIElement>
 		<UIElement keyword="Excel表导入单据明细" by="xpath" value="//button[@uib-tooltip='Excel表导入单据明细']"></UIElement>
 		<UIElement keyword="浏览" by="id" value="importFile"></UIElement>
 		<UIElement keyword="导入" by="xpath" value="//button[text()='导入']"></UIElement>
 		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
 		<UIElement keyword="导入成功" by="xpath" value="//*[@id='modal-body']/div[2]/div[2]/span"></UIElement>
-		<UIElement keyword="关闭" by="xpath" value="//button[@ng-click='cancelImportModal()']/span"></UIElement>
-		
-		
+		<UIElement keyword="关闭" by="xpath" value="//h3[text()='Excel表导入明细']/following-sibling::button[1]"></UIElement>
+		<UIElement keyword="审核" by="xpath" value="//span[text()='审核H']"></UIElement>
+		<UIElement keyword="确定" by="xpath" value="//button[text()='确定']"></UIElement>
+		<UIElement keyword="结款金额" by="xpath" value="//label[text()='结款金额']/following-sibling::input[1]"></UIElement>
+		<UIElement keyword="确认" by="xpath" value="//button[text()='确认']"></UIElement>
+		<UIElement keyword="作废" by="xpath" value="//span[text()='作废']"></UIElement>
 	</Page>
 	<Page keyword='采购进仓单页'>
 		<UIElement keyword="机构" by="id" value="select2-inNote-organData-container"></UIElement>
-		<UIElement keyword="业务员" by="xpath" value="//span[@aria-labelledby='select2-inNote-salesmanData-container']"></UIElement>
-		<UIElement keyword="经手人" by="xpath" value="//span[@aria-labelledby='select2-inNote-operatorData-container']"></UIElement>
-		<UIElement keyword="仓管员" by="xpath" value="//span[@aria-labelledby='select2-inNote-storehousemanagerData-container']"></UIElement>
-		<UIElement keyword="供应商" by="xpath" value="//span[@aria-labelledby='select2-inNote-supplierData-container']"></UIElement>
+		
+	</Page>
+	<Page keyword='采购退货单页'>
+		<UIElement keyword="机构" by="id" value="select2-returnNote-organData-container"></UIElement>
 	</Page>
 	<Page keyword='财务页'>
 		<UIElement keyword="利润表" by="xpath" value="//span[text()='利润表']"></UIElement>

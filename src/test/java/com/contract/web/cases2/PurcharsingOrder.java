@@ -106,13 +106,12 @@ public class PurcharsingOrder extends BaseElectron {
 		 //校验是否生成新的订货单
 		 String suppliername = getElement("进货页", "采购订货单校验供应商名称").getAttribute("textContent");
 		 System.out.println("采购订货单校验供应商名称:"+suppliername);
-		 AssertionUtil assertionUtil = new AssertionUtil();
-		 assertionUtil.assertTextEquals(suppliername, "华北供应商_陆涛测试专用");
+		 AssertionUtil.assertTextEqualsNoInterruption(suppliername, "华北供应商_陆涛测试专用");
 	}
 	/*导入商品明细
 	 * 
 	 * */
-	@Test(priority=1,enabled=false)
+	@Test(priority=1)
 	public void ExcelImportDetailSuccessCase() throws Exception{
 		click(getElement("首页页", "进货"));
 		click(getElement("进货页", "采购订货单"));
@@ -146,11 +145,11 @@ public class PurcharsingOrder extends BaseElectron {
 		Runtime.getRuntime().exec("D:\\Desktop\\upfile.exe");
 		Thread.sleep(5000);
 		click(getElement("进货页", "导入"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//excel表导入明细导入后，提示信息校验
 		WebElement goodsDetailImport = getElement("进货页", "提示信息");
 		String goodsImport = goodsDetailImport.getText();
-		AssertionUtil.assertTextEquals(goodsImport, "导入明细成功");
+		AssertionUtil.assertTextEqualsNoInterruption(goodsImport, "导入明细成功");
 		Thread.sleep(3000);
 		//校验导入成功的行数是否为2
 		

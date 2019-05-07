@@ -34,10 +34,10 @@ public class AssertionUtil {
 	/*判断元素是否存在
 	 * 
 	 * */
-	public static boolean ElementExist(WebDriver driver,By locator){
-		logger.info("判断元素【"+locator+"】是否存在");
+	public static boolean ElementExist(WebDriver driver,By webElement){
+		logger.info("判断元素【"+webElement+"】是否存在");
 	        try {
-	            driver.findElement(locator);
+	            driver.findElement(webElement);
 	            return true;
 	        } catch (Exception e) {
 	            return false;
