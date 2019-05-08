@@ -3,20 +3,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- 通过suite元素定义测试套件 -->
 <suite name="悦商云平台系统" >
-	<!-- 定义一个测试集 -->
-  	<test name="test">
+	<!-- 定义一个进货测试集 -->
+  	<test name="purchar">
   		<!-- 一个测试集里可以包含哪些测试类 -->
     	<classes>
     	<!-- 配置要执行的测试类的路径 -->
     		<class name="com.contract.web.cases2.FinanceProfitStatement"></class>
     		<class name="com.contract.web.cases2.PurcharsingOrder"></class>
-    		<class name="com.contract.web.cases2.PurchasingWarehouseReceipt"></class>
     		<class name="com.contract.web.cases2.PurchaseReturn"></class>
+    		<class name="com.contract.web.cases2.PurchasingWarehouseReceipt"></class>	
+    	</classes>
+    </test> <!-- Test -->
+    <!-- 定义一个销售测试集 -->
+    <test name="sale">
+  		<!-- 一个测试集里可以包含哪些测试类 -->
+    	<classes>
+    	<!-- 配置要执行的测试类的路径 -->
+    		<class name="com.contract.web.cases2.SalesQuotationSheet"></class>
     	</classes>
     </test> <!-- Test -->
     <!-- 定义一个参数 -->
-    <!-- <parameter name="electronType" value="F:\\软件包\\B2\\B2测试\\B2.exe"></parameter> -->
-    <parameter name="electronType" value="D:\\悦商云B2\\B2 - 公测版本\\B2.exe"></parameter>
+    <!-- 测试版本路径：F:\\软件包\\B2\\B2测试\\B2.exe" -->
+    <!-- 线上版本路径：D:/悦商云B2/B2线上版本/B2.exe" -->
+    <parameter name="electronType" value="F:\\软件包\\B2\\B2测试\\B2.exe"></parameter>
     <!-- 驱动文件的相对路径  -->
     <parameter name="driverPath" value="src/test/resources/chromedriver.exe"></parameter>
     <parameter name="loginusername" value="13286378616"></parameter>

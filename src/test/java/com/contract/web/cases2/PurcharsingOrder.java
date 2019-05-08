@@ -9,11 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
+@Listeners({com.contract.web.util.AssertionListener.class})
 public class PurcharsingOrder extends BaseElectron {
 	@Test(priority=0)
 	public void successCase() throws Exception{
@@ -107,6 +109,7 @@ public class PurcharsingOrder extends BaseElectron {
 		 String suppliername = getElement("进货页", "采购订货单校验供应商名称").getAttribute("textContent");
 		 System.out.println("采购订货单校验供应商名称:"+suppliername);
 		 AssertionUtil.assertTextEqualsNoInterruption(suppliername, "华北供应商_陆涛测试专用");
+		 AssertionUtil.ElementExist(driver, By.xpath("//span[text()='1']/../following-sibling::div[5]"));
 	}
 	/*导入商品明细
 	 * 
