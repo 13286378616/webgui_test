@@ -99,7 +99,7 @@ public class PurcharsingOrder extends BaseElectron {
 			System.out.println("规格为：件");
 		}
 		// 输入件数
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		getElement("进货页", "件数").clear();
 		sendKeys(getElement("进货页", "件数"), "10");
 		// 输入件价
@@ -113,12 +113,8 @@ public class PurcharsingOrder extends BaseElectron {
 		// 审核
 		click(getElement("进货页", "审核"));
 		Thread.sleep(3000);
-		click(getElement("进货页", "确定"));
+		click(getElement("进货页", "确认"));
 		Thread.sleep(2000);
-		// 点击返回
-		click(getElement("进货页", "返回"));
-		Thread.sleep(2000);
-
 		// 点击返回
 		click(getElement("进货页", "返回"));
 		Thread.sleep(2000);
@@ -131,6 +127,7 @@ public class PurcharsingOrder extends BaseElectron {
 		 * "华北供应商_陆涛测试专用");
 		 */
 		// 校验是否自动返回首页，是否存在新单元素
+		Thread.sleep(2000);
 		AssertionUtil.ElementExist(driver, By.xpath("//span[text()='新单N']"));
 	}
 

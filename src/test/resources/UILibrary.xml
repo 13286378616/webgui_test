@@ -56,7 +56,7 @@
 		<UIElement keyword="合同交货日期" by="xpath" value="//label[text()='合同交货日期']/../input"></UIElement>
 		<UIElement keyword="品名" by="xpath" value="//input[@placeholder='请输入商品名称']"></UIElement>
 		<UIElement keyword="商品名称" by="xpath" value="//div[text()='火腿测试专用']"></UIElement>
-		<UIElement keyword="件数" by="id" value="test"></UIElement>
+		<UIElement keyword="件数" by="xpath" value="//label[text()='件数']/following-sibling::input[1]"></UIElement>
 		<UIElement keyword="散数" by="xpath" value="//label[text()='散数']/../input"></UIElement>
 		<UIElement keyword="件价" by="xpath" value="//label[text()='件价']/../input"></UIElement>
 		<UIElement keyword="件数备注" by="xpath" value="//textarea[@placeholder='备注']"></UIElement>

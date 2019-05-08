@@ -105,7 +105,6 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		// 点击返回
 		Thread.sleep(2000);
 		click(getElement("进货页", "返回"));
-		Thread.sleep(2000);
 		// 校验是否生成新的订货单
 		/*
 		 * String suppliername = getElement("销售页",
@@ -115,6 +114,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		 * "华北客户_陆涛测试专用");
 		 */
 		// 校验是否自动返回首页，是否存在新单元素
+		Thread.sleep(2000);
 		AssertionUtil.ElementExist(driver, By.xpath("//span[text()='新单N']"));
 	}
 
