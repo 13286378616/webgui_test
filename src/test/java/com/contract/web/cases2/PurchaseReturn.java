@@ -11,24 +11,19 @@ import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
 @Listeners({ com.contract.web.util.AssertionListener.class })
-public class PurchasingWarehouseReceipt extends BaseElectron {
+public class PurchaseReturn extends BaseElectron {
 	/*
-	 * 创建进仓单并且审核
+	 * 创建退货单并且审核
 	 * 
 	 * 
 	 */
+
 	@Test(priority = 0)
 	public void successCase() throws Exception {
-		// 切换到最新窗口
-		for (String handle : driver.getWindowHandles()) {
-			System.out.println(handle);
-			driver.switchTo().window(handle);
-		}
 		click(getElement("首页页", "进货"));
-		click(getElement("进货页", "采购进仓单"));
+		click(getElement("进货页", "采购退货单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
-
 		// 判断是否使用旧的单据，这里选择否
 		boolean cElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
 		System.out.println("空单是否存在：" + cElement);
@@ -59,13 +54,8 @@ public class PurchasingWarehouseReceipt extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
-		// 搜索并选择仓管员
-		click(getElement("进货页", "仓管员"));
-		sendKeys(getElement("进货页", "搜索"), "陆涛");
-		Thread.sleep(1000);
-		click(getElement("进货页", "仓管员搜索结果"));
-		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
+		// 备注
+		sendKeys(getElement("进货页", "备注"), "自动化测试采购退货单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
@@ -104,14 +94,14 @@ public class PurchasingWarehouseReceipt extends BaseElectron {
 		Thread.sleep(3000);
 		sendKeys(getElement("进货页", "结款金额"), "5000");
 		click(getElement("进货页", "确定"));
-		// 点击返回
 		Thread.sleep(2000);
+		// 点击返回
 		click(getElement("进货页", "返回"));
 		Thread.sleep(2000);
 		// 校验是否生成新的订货单
 		/*
 		 * String suppliername = getElement("进货页",
-		 * "采购进仓单校验供应商名称").getAttribute("textContent");
+		 * "采购退货单校验供应商名称").getAttribute("textContent");
 		 * System.out.println("订单校验供应商名称:" + suppliername); AssertionUtil
 		 * assertionUtil = new AssertionUtil();
 		 * assertionUtil.assertTextEquals(suppliername, "华北供应商_陆涛测试专用");
@@ -121,22 +111,16 @@ public class PurchasingWarehouseReceipt extends BaseElectron {
 	}
 
 	/*
-	 * 创建采购进仓单并且作废
+	 * 新建退货单并且作废
 	 * 
 	 * 
 	 */
 	@Test(priority = 1)
 	public void faildCase() throws Exception {
-		// 切换到最新窗口
-		for (String handle : driver.getWindowHandles()) {
-			System.out.println(handle);
-			driver.switchTo().window(handle);
-		}
 		click(getElement("首页页", "进货"));
-		click(getElement("进货页", "采购进仓单"));
+		click(getElement("进货页", "采购退货单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
-
 		// 判断是否使用旧的单据，这里选择否
 		boolean cElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
 		System.out.println("空单是否存在：" + cElement);
@@ -167,13 +151,8 @@ public class PurchasingWarehouseReceipt extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
-		// 搜索并选择仓管员
-		click(getElement("进货页", "仓管员"));
-		sendKeys(getElement("进货页", "搜索"), "陆涛");
-		Thread.sleep(1000);
-		click(getElement("进货页", "仓管员搜索结果"));
-		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
+		// 备注
+		sendKeys(getElement("进货页", "备注"), "自动化测试采购退货单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");

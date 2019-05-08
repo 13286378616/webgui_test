@@ -2,6 +2,7 @@ package com.contract.web.cases;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,7 @@ public class BaseElectron {
 	@Parameters(value = { "electronType", "driverPath" })
 	public void init(String electronType, String driverPath) throws Exception {
 		logger.info("配置信息：ELectron版本：【" + electronType + "】，驱动文件路径：【" + driverPath + "】");
+		Thread.sleep(1000);
 		System.setProperty("webdriver.chrome.driver", driverPath);// You can
 																	// skip this
 																	// if
@@ -47,7 +49,7 @@ public class BaseElectron {
 		// Now if you open the dev tools using CMD+ALT+I you would notice two
 		// dev tools and first one being for the electron shell. We need to
 		// switch to the second window handle. Let's do that.
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
 			driver.switchTo().window(handle); // Since there are two window
@@ -59,7 +61,8 @@ public class BaseElectron {
 		// If you inspect using the Dev Tools, you would notice the second
 		// window Dev Tools corresponds to actual page you have opened.
 		// From here you can write the usual selenium script and it will work.
-		driver.findElement(By.xpath("//a[@ng-click='login()']")).click();
+		// driver.findElement(By.xpath("//a[@ng-click='login()']")).click();
+		click(getElement("首页页", "登录"));
 		/*
 		 * if (condition) {
 		 * 
@@ -209,6 +212,14 @@ public class BaseElectron {
 	 */
 	public void sendKeys(WebElement element, String value) {
 		logger.info("写入数据：【" + value + "】");
+		element.sendKeys(value);
+	}
+
+	/**
+	 * 按下键盘键
+	 */
+	public void sendKeysKeyboard(WebElement element, Keys value) {
+		logger.info("按下按键：【" + value + "】");
 		element.sendKeys(value);
 	}
 

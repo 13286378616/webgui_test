@@ -19,7 +19,7 @@
 		<UIElement keyword="首页" by="xpath" value="//div[@class='navTab']/div[1]"></UIElement>
 		<UIElement keyword="产品" by="xpath" value="//div[@class='navTab']/div[2]"></UIElement>
 		<UIElement keyword="解决方案" by="xpath" value="//div[@class='navTab']/div[3]"></UIElement>
-		<UIElement keyword="登录" by="xpath" value="//div[contains(@class,'navBtn')]/a[1]"></UIElement>
+		<UIElement keyword="登录" by="xpath" value="//a[@ng-click='login()']"></UIElement>
 		<UIElement keyword="免费注册" by="xpath" value="//div[contains(@class,'navBtn')]/a[2]"></UIElement>
 		<UIElement keyword="取消" by="xpath" value="//button[text()='取消']"></UIElement>
 		<UIElement keyword="进货" by="xpath" value="//span[text()='进货']"></UIElement>
@@ -56,7 +56,7 @@
 		<UIElement keyword="合同交货日期" by="xpath" value="//label[text()='合同交货日期']/../input"></UIElement>
 		<UIElement keyword="品名" by="xpath" value="//input[@placeholder='请输入商品名称']"></UIElement>
 		<UIElement keyword="商品名称" by="xpath" value="//div[text()='火腿测试专用']"></UIElement>
-		<UIElement keyword="件数" by="xpath" value="//label[text()='件数']/../input"></UIElement>
+		<UIElement keyword="件数" by="id" value="test"></UIElement>
 		<UIElement keyword="散数" by="xpath" value="//label[text()='散数']/../input"></UIElement>
 		<UIElement keyword="件价" by="xpath" value="//label[text()='件价']/../input"></UIElement>
 		<UIElement keyword="件数备注" by="xpath" value="//textarea[@placeholder='备注']"></UIElement>
@@ -84,6 +84,7 @@
 		<UIElement keyword="客户" by="xpath" value="//select[@custom-title='客户']/following-sibling::span[1]"></UIElement>
 		<UIElement keyword="客户搜索结果" by="xpath" value="//li[text()='华北客户_陆涛测试专用']"></UIElement>
 		<UIElement keyword="销售报价单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[4]"></UIElement>
+		<UIElement keyword="规格" by="xpath" value="//label[text()='规格']/following-sibling::span[1]"></UIElement>
 	</Page>
 	<Page keyword='财务页'>
 		<UIElement keyword="利润表" by="xpath" value="//span[text()='利润表']"></UIElement>
