@@ -37,7 +37,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择供应商
+		// 搜索并选择客户
 		click(getElement("销售页", "客户"));
 		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
 		Thread.sleep(1000);

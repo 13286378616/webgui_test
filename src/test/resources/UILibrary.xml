@@ -86,6 +86,9 @@
 		<UIElement keyword="销售报价单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[4]"></UIElement>
 		<UIElement keyword="规格" by="xpath" value="//label[text()='规格']/following-sibling::span[1]"></UIElement>
 	</Page>
+	<Page keyword='商品明细页'>
+		<UIElement keyword="件价" by="xpath" value="//div[@col-id='xuhao']/span[text()='1']/../following-sibling::div[@col-id='getIP']"></UIElement>
+	</Page>
 	<Page keyword='财务页'>
 		<UIElement keyword="利润表" by="xpath" value="//span[text()='利润表']"></UIElement>
 	</Page>

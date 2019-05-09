@@ -49,7 +49,7 @@ public class BaseElectron {
 		// Now if you open the dev tools using CMD+ALT+I you would notice two
 		// dev tools and first one being for the electron shell. We need to
 		// switch to the second window handle. Let's do that.
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
 			driver.switchTo().window(handle); // Since there are two window
