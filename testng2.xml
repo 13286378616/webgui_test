@@ -8,7 +8,7 @@
   		<!-- 一个测试集里可以包含哪些测试类 -->
     	<classes>
     	<!-- 配置要执行的测试类的路径 -->
-    		<class name="com.contract.web.cases2.TotalnumberOfRecords"></class>
+    		<class name="com.contract.web.cases2.GoodsDetailImportUnitpricenull"></class>
     	</classes>
     </test> <!-- Test -->
     <!-- 定义一个参数 -->
