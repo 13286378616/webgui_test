@@ -26,6 +26,23 @@
 		<UIElement keyword="我的" by="xpath" value="//span[text()='我的']"></UIElement>
 		<UIElement keyword="销售" by="xpath" value="//span[text()='销售']"></UIElement>
 		<UIElement keyword="财务" by="xpath" value="//span[text()='财务']"></UIElement>
+		<UIElement keyword="关闭页面" by="xpath" value="//a[text()='✕']"></UIElement>
+		<UIElement keyword="采购订货单" by="xpath" value="//span[text()='采购订货单']"></UIElement>
+		<UIElement keyword="采购进仓单" by="xpath" value="//span[text()='采购进仓单']"></UIElement>
+		<UIElement keyword="采购退货单" by="xpath" value="//span[text()='采购退货单']"></UIElement>
+		<UIElement keyword="供应商发货单" by="xpath" value="//span[text()='供应商发货单']"></UIElement>
+		<UIElement keyword="供应商档案" by="xpath" value="//span[text()='供应商档案']"></UIElement>
+		<UIElement keyword="采购付款单" by="xpath" value="//span[text()='采购付款单']"></UIElement>
+		<UIElement keyword="销售报价单" by="xpath" value="//span[text()='销售报价单']"></UIElement>
+		<UIElement keyword="销售出仓单" by="xpath" value="//span[text()='销售出仓单']"></UIElement>
+		<UIElement keyword="销售退货单" by="xpath" value="//span[text()='销售退货单']"></UIElement>
+		<UIElement keyword="商品调价单" by="xpath" value="//span[text()='商品调价单']"></UIElement>
+		<UIElement keyword="促销单" by="xpath" value="//span[text()='促销单']"></UIElement>
+		<UIElement keyword="客户档案" by="xpath" value="//span[text()='客户档案']"></UIElement>
+		<UIElement keyword="客户对账单" by="xpath" value="//span[text()='客户对账单']"></UIElement>
+		<UIElement keyword="销售收款单" by="xpath" value="//span[text()='销售收款单']"></UIElement>
+		<UIElement keyword="销售预收单" by="xpath" value="//span[text()='销售预收单']"></UIElement>
+		<UIElement keyword="销售批量结款" by="xpath" value="//span[text()='销售批量结款']"></UIElement>
 	</Page>
 	<Page keyword="注册页">
 		<UIElement keyword="会员注册" by="xpath" value="//div[text()='会员注册']"></UIElement>
@@ -34,6 +51,20 @@
 		<UIElement keyword="采购订货单" by="xpath" value="//div[text()='采购订货单']"></UIElement>
 		<UIElement keyword="采购进仓单" by="xpath" value="//div[text()='采购进仓单']"></UIElement>
 		<UIElement keyword="采购退货单" by="xpath" value="//div[text()='采购退货单']"></UIElement>
+		<UIElement keyword="供应商发货单" by="xpath" value="//div[text()='供应商发货单']"></UIElement>
+		<UIElement keyword="供应商档案" by="xpath" value="//div[text()='供应商档案']"></UIElement>
+		<UIElement keyword="采购付款单" by="xpath" value="//div[text()='采购付款单']"></UIElement>
+		<UIElement keyword="采购预付单" by="xpath" value="//div[text()='采购付款单']"></UIElement>
+		<UIElement keyword="销售报价单" by="xpath" value="//div[text()='销售报价单']"></UIElement>
+		<UIElement keyword="销售出仓单" by="xpath" value="//div[text()='销售出仓单']"></UIElement>
+		<UIElement keyword="销售退货单" by="xpath" value="//div[text()='销售退货单']"></UIElement>
+		<UIElement keyword="商品调价单" by="xpath" value="//div[text()='商品调价单']"></UIElement>
+		<UIElement keyword="促销单" by="xpath" value="//div[text()='促销单']"></UIElement>
+		<UIElement keyword="客户档案" by="xpath" value="//div[text()='客户档案']"></UIElement>
+		<UIElement keyword="客户对账单" by="xpath" value="//div[text()='客户对账单']"></UIElement>
+		<UIElement keyword="销售收款单" by="xpath" value="//div[text()='销售收款单']"></UIElement>
+		<UIElement keyword="销售预收单" by="xpath" value="//div[text()='销售预收单']"></UIElement>
+		<UIElement keyword="销售批量结款" by="xpath" value="//div[text()='销售批量结款']"></UIElement>
 		<UIElement keyword="新单" by="xpath" value="//span[text()='新单N']"></UIElement>
 		<UIElement keyword="否" by="xpath" value="//button[text()='否N']"></UIElement>
 		<UIElement keyword="是" by="xpath" value="//button[text()='是Y']"></UIElement>
@@ -76,6 +107,8 @@
 		<UIElement keyword="结款金额" by="xpath" value="//label[text()='结款金额']/following-sibling::input[1]"></UIElement>
 		<UIElement keyword="确认" by="xpath" value="//button[text()='确认']"></UIElement>
 		<UIElement keyword="作废" by="xpath" value="//span[text()='作废']"></UIElement>
+		<UIElement keyword="序号1" by="xpath" value="//span[text()='1']/.."></UIElement>
+		<UIElement keyword="总记录数" by="xpath" value="//span[contains(text(),'总记录数')]/.."></UIElement>
 	</Page>
 	<Page keyword='销售页'>
 		<UIElement keyword="销售出仓单" by="xpath" value="//div[text()='销售出仓单']"></UIElement>
@@ -85,6 +118,8 @@
 		<UIElement keyword="客户搜索结果" by="xpath" value="//li[text()='华北客户_陆涛测试专用']"></UIElement>
 		<UIElement keyword="销售报价单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[4]"></UIElement>
 		<UIElement keyword="规格" by="xpath" value="//label[text()='规格']/following-sibling::span[1]"></UIElement>
+		
+		
 	</Page>
 	<Page keyword='商品明细页'>
 		<UIElement keyword="第一行件价" by="xpath" value="//div[@col-id='xuhao']/span[text()='1']/../following-sibling::div[@col-id='getIP']"></UIElement>
