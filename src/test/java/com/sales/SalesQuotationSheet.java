@@ -1,29 +1,31 @@
-package com.contract.web.cases2;
+package com.sales;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
-public class SalesWarehouseReceipt extends BaseElectron {
+@Listeners({ com.contract.web.util.AssertionListener.class })
+public class SalesQuotationSheet extends BaseElectron {
 	/*
-	 * 创建销售出仓单并审核
+	 * 创建销售报价单并且审核
 	 * 
 	 * 
 	 */
 	@Test(priority = 0)
-	public void successCase() throws Exception {
+	public void sucessCase() throws Exception {
 		// 切换到最新窗口
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
 			driver.switchTo().window(handle);
 		}
 		click(getElement("首页页", "销售"));
-		click(getElement("销售页", "销售出仓单"));
+		click(getElement("销售页", "销售报价单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
 
@@ -37,7 +39,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择客户
+		// 搜索并选择供应商
 		click(getElement("销售页", "客户"));
 		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
 		Thread.sleep(1000);
@@ -57,14 +59,10 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
-		// 搜索并选择仓管员
-		click(getElement("进货页", "仓管员"));
-		sendKeys(getElement("进货页", "搜索"), "陆涛");
-		Thread.sleep(1000);
-		click(getElement("进货页", "仓管员搜索结果"));
 		// 备注测试
 		sendKeys(getElement("进货页", "备注"), "自动化测试销售报价单");
 		// 搜索并选择仓库
+		Thread.sleep(1000);
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
 		Thread.sleep(3000);
@@ -100,8 +98,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		// 审核
 		click(getElement("进货页", "审核"));
 		Thread.sleep(3000);
-		sendKeys(getElement("进货页", "结款金额"), "5000");
-		click(getElement("进货页", "确定"));
+		click(getElement("进货页", "确认"));
 		// 点击返回
 		Thread.sleep(2000);
 		click(getElement("进货页", "返回"));
@@ -119,7 +116,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 	}
 
 	/*
-	 * 创建销售出仓单并且作废
+	 * 创建销售报价单并且作废
 	 * 
 	 * 
 	 */
@@ -131,7 +128,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 			driver.switchTo().window(handle);
 		}
 		click(getElement("首页页", "销售"));
-		click(getElement("销售页", "销售出仓单"));
+		click(getElement("销售页", "销售报价单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
 
@@ -166,7 +163,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
 		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试销售出仓单");
+		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");

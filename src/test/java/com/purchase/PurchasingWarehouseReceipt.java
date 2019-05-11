@@ -1,17 +1,20 @@
-package com.contract.web.cases2;
+package com.purchase;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
-public class SalesReturn extends BaseElectron {
+@Listeners({ com.contract.web.util.AssertionListener.class })
+public class PurchasingWarehouseReceipt extends BaseElectron {
 	/*
-	 * 创建销售退货单并审核
+	 * 创建进仓单并且审核
+	 * 
 	 * 
 	 */
 	@Test(priority = 0)
@@ -21,8 +24,8 @@ public class SalesReturn extends BaseElectron {
 			System.out.println(handle);
 			driver.switchTo().window(handle);
 		}
-		click(getElement("首页页", "销售"));
-		click(getElement("销售页", "销售退货单"));
+		click(getElement("首页页", "进货"));
+		click(getElement("进货页", "采购进仓单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
 
@@ -37,10 +40,10 @@ public class SalesReturn extends BaseElectron {
 		}
 		Thread.sleep(3000);
 		// 搜索并选择供应商
-		click(getElement("销售页", "客户"));
-		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+		click(getElement("进货页", "供应商"));
+		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
 		Thread.sleep(1000);
-		click(getElement("销售页", "客户搜索结果"));
+		click(getElement("进货页", "供应商搜索结果"));
 		// 搜索并选择机构
 		click(getElement("进货页", "机构"));
 		sendKeys(getElement("进货页", "搜索"), "华北机构_陆涛测试专用");
@@ -56,8 +59,13 @@ public class SalesReturn extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
+		// 搜索并选择仓管员
+		click(getElement("进货页", "仓管员"));
+		sendKeys(getElement("进货页", "搜索"), "陆涛");
+		Thread.sleep(1000);
+		click(getElement("进货页", "仓管员搜索结果"));
 		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试销售退货单");
+		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
@@ -101,11 +109,11 @@ public class SalesReturn extends BaseElectron {
 		click(getElement("进货页", "返回"));
 		// 校验是否生成新的订货单
 		/*
-		 * String suppliername = getElement("销售页",
-		 * "销售报价单校验供应商名称").getAttribute("textContent");
-		 * System.out.println("订单校验供应商名称:" + suppliername);
-		 * AssertionUtil.assertTextEqualsNoInterruption(suppliername,
-		 * "华北客户_陆涛测试专用");
+		 * String suppliername = getElement("进货页",
+		 * "采购进仓单校验供应商名称").getAttribute("textContent");
+		 * System.out.println("订单校验供应商名称:" + suppliername); AssertionUtil
+		 * assertionUtil = new AssertionUtil();
+		 * assertionUtil.assertTextEquals(suppliername, "华北供应商_陆涛测试专用");
 		 */
 		// 校验是否自动返回首页，是否存在新单元素
 		Thread.sleep(2000);
@@ -113,7 +121,7 @@ public class SalesReturn extends BaseElectron {
 	}
 
 	/*
-	 * 创建销售出仓单并且作废
+	 * 创建采购进仓单并且作废
 	 * 
 	 * 
 	 */
@@ -124,8 +132,8 @@ public class SalesReturn extends BaseElectron {
 			System.out.println(handle);
 			driver.switchTo().window(handle);
 		}
-		click(getElement("首页页", "销售"));
-		click(getElement("销售页", "销售退货单"));
+		click(getElement("首页页", "进货"));
+		click(getElement("进货页", "采购进仓单"));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(3000);
 
@@ -140,10 +148,10 @@ public class SalesReturn extends BaseElectron {
 		}
 		Thread.sleep(3000);
 		// 搜索并选择供应商
-		click(getElement("销售页", "客户"));
-		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+		click(getElement("进货页", "供应商"));
+		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
 		Thread.sleep(1000);
-		click(getElement("销售页", "客户搜索结果"));
+		click(getElement("进货页", "供应商搜索结果"));
 		// 搜索并选择机构
 		click(getElement("进货页", "机构"));
 		sendKeys(getElement("进货页", "搜索"), "华北机构_陆涛测试专用");
@@ -159,6 +167,11 @@ public class SalesReturn extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
+		// 搜索并选择仓管员
+		click(getElement("进货页", "仓管员"));
+		sendKeys(getElement("进货页", "搜索"), "陆涛");
+		Thread.sleep(1000);
+		click(getElement("进货页", "仓管员搜索结果"));
 		// 备注测试
 		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
 		// 搜索并选择仓库

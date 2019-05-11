@@ -1,4 +1,4 @@
-package com.contract.web.cases2;
+package com.purchase;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

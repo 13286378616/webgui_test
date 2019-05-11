@@ -1,4 +1,4 @@
-package com.contract.web.cases2;
+package com.purchase;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
