@@ -6,14 +6,20 @@ import org.testng.annotations.Test;
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 
-@Listeners({com.contract.web.util.AssertionListener.class})
-public class FinanceProfitStatement extends BaseElectron{
-	@Test(priority=0)
-	public void sucessCase() throws Exception{
+/**
+ * 财务利润表-查看列表字段是否与需求一致
+ * 
+ * @author Administrator
+ *
+ */
+@Listeners({ com.contract.web.util.AssertionListener.class })
+public class FinanceProfitStatement extends BaseElectron {
+	@Test(priority = 0)
+	public void sucessCase() throws Exception {
 		Thread.sleep(3000);
 		click(getElement("首页页", "财务"));
 		String name = getElement("财务页", "利润表").getAttribute("textContent");
-		System.out.println("定位到的元素文本值为："+name);
+		System.out.println("定位到的元素文本值为：" + name);
 		Thread.sleep(3000);
 		click(getElement("财务页", "利润表"));
 		Thread.sleep(3000);
@@ -36,7 +42,8 @@ public class FinanceProfitStatement extends BaseElectron{
 		String seventeenthName = getElement("利润表页", "第十七行项目名称").getAttribute("textContent");
 		String eighteenthName = getElement("利润表页", "第十八行项目名称").getAttribute("textContent");
 		String nineteenthName = getElement("利润表页", "第十九行项目名称").getAttribute("textContent");
-		//System.out.println(getElement("利润表页", "第十九行项目名称").getText());   //getText方法同getAttribute("textContent")
+		// System.out.println(getElement("利润表页", "第十九行项目名称").getText());
+		// //getText方法同getAttribute("textContent")
 		AssertionUtil.assertTextEqualsNoInterruption(firstEntryName, "一、营业收入");
 		AssertionUtil.assertTextEqualsNoInterruption(secondEntryName, "   减：营业成本");
 		AssertionUtil.assertTextEqualsNoInterruption(thirdEntryName, "   税金及附加");

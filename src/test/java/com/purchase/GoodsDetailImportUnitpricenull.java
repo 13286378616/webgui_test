@@ -10,8 +10,22 @@ import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
 import com.contract.web.util.ExcelUtil;
 
+/**
+ * 销售页和进货页-6大单据，上传excel商品明细（单价为空）测试用例
+ * 校验取价规则是否正确：Excel价格>促销价>跟踪历史售价的情况下取历史售价>售价方式
+ * 
+ * @author Administrator
+ *
+ */
 @Listeners({ com.contract.web.util.AssertionListener.class })
 public class GoodsDetailImportUnitpricenull extends BaseElectron {
+	/**
+	 * 销售页3大单据，上传excel商品明细（单价为空）测试用例
+	 * 
+	 * @param slipname
+	 * @param purchaseslipName
+	 * @throws Exception
+	 */
 	@Test(priority = 0, dataProvider = "slipsNames", enabled = false)
 	public void saleSuccessCase(String slipname, String purchaseslipName) throws Exception {
 		click(getElement("首页页", "销售"));
@@ -73,6 +87,13 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 
 	}
 
+	/**
+	 * 进货页3大单据，上传excel商品明细（单价为空）测试用例
+	 * 
+	 * @param slipname
+	 * @param purchaseslipName
+	 * @throws Exception
+	 */
 	@Test(priority = 1, dataProvider = "slipsNames")
 	public void purchaseSuccessCase(String slipname, String purchaseslipName) throws Exception {
 		click(getElement("首页页", "进货"));

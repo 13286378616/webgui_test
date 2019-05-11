@@ -7,16 +7,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.contract.web.cases.BaseElectron;
 import com.contract.web.util.AssertionUtil;
+import com.contract.web.util.ExcelUtil;
 
+/**
+ * 进货页-采购订货单，新建订单-审核，作废用例 导入商品明细测试用例
+ * 
+ * @author Administrator
+ *
+ */
 @Listeners({ com.contract.web.util.AssertionListener.class })
 public class PurcharsingOrder extends BaseElectron {
-	@Test(priority = 0)
-	public void successCase() throws Exception {
+	@Test(priority = 0, dataProvider = "pageNames")
+	public void successCase(String menuname, String pagename) throws Exception {
 		// 切换到最新窗口
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
@@ -28,8 +36,8 @@ public class PurcharsingOrder extends BaseElectron {
 		}
 		Thread.sleep(3000);
 
-		click(getElement("首页页", "进货"));
-		click(getElement("进货页", "采购订货单"));
+		click(getElement("首页页", menuname));
+		click(getElement(menuname, pagename));
 		Thread.sleep(1000);
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
@@ -39,9 +47,9 @@ public class PurcharsingOrder extends BaseElectron {
 		Thread.sleep(3000);
 		// 判断是否使用旧的单据，这里选择是
 		By xpath;
-		boolean cElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
-		System.out.println("空单是否存在：" + cElement);
-		if (cElement == true) {
+		boolean statuElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
+		System.out.println("空单是否存在：" + statuElement);
+		if (statuElement == true) {
 			// 存在空单，这里选择是
 			click(getElement("进货页", "否"));
 		} else {
@@ -69,7 +77,16 @@ public class PurcharsingOrder extends BaseElectron {
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
-		// 销售负责人输入
+		// 如果为采购订货单， 销售负责人输入
+		if (pagename.equals("采购订货单")) {
+			sendKeys(getElement("进货页", "销售负责人"), "销售负责人测试");
+		} else if (pagename.equals("采购进仓单")) {
+			// 搜索并选择仓管员
+			click(getElement("进货页", "仓管员"));
+			sendKeys(getElement("进货页", "搜索"), "陆涛");
+			Thread.sleep(1000);
+			click(getElement("进货页", "仓管员搜索结果"));
+		}
 		sendKeys(getElement("进货页", "销售负责人"), "销售负责人测试");
 		// 备注输入
 		sendKeys(getElement("进货页", "备注"), "自动化测试");
@@ -131,14 +148,15 @@ public class PurcharsingOrder extends BaseElectron {
 		AssertionUtil.ElementExist(driver, By.xpath("//span[text()='新单N']"));
 	}
 
-	/*
-	 * 导入商品明细
+	/**
+	 * 导入商品明细，作废用例
 	 * 
+	 * @throws Exception
 	 */
-	@Test(priority = 1)
-	public void ExcelImportDetailSuccessCase() throws Exception {
-		click(getElement("首页页", "进货"));
-		click(getElement("进货页", "采购订货单"));
+	@Test(priority = 1, dataProvider = "pageNames")
+	public void ExcelImportDetailSuccessCase(String menuname, String pagename) throws Exception {
+		click(getElement("首页页", menuname));
+		click(getElement(menuname, pagename));
 		click(getElement("进货页", "新单"));
 		Thread.sleep(2000);
 		// 判断是否使用旧的单据，这里选择是
@@ -191,6 +209,13 @@ public class PurcharsingOrder extends BaseElectron {
 		Thread.sleep(2000);
 		// 校验是否自动返回首页，是否存在新单元素
 		AssertionUtil.ElementExist(driver, By.xpath("//span[text()='新单N']"));
+	}
+
+	@DataProvider(name = "pageNames")
+	public Object[][] pageNameDatas() {
+		String[] cellNames = { "菜单名称", "菜单页面名称" };
+		Object[][] datas = ExcelUtil.read2("src/test/resources/menuName.xlsx", "DL-1", cellNames);
+		return datas;
 
 	}
 }
