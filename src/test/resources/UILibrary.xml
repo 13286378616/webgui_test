@@ -167,11 +167,33 @@
 	<Page keyword='员工档案页'>
 		<UIElement keyword="资产负债表" by="xpath" value="//div[text()='资产负债表']"></UIElement>
 		<UIElement keyword="增加" by="xpath" value="//span[text()='增加']"></UIElement>
+		<UIElement keyword="删除" by="xpath" value="//span[text()='删除']"></UIElement>
+		<UIElement keyword="增加A" by="xpath" value="//span[text()='增加A']"></UIElement>
 		<UIElement keyword="类型编号" by="xpath" value="//label[text()='类型编号']/following-sibling::input"></UIElement>
 		<UIElement keyword="类型名称" by="xpath" value="//label[text()='类型名称']/following-sibling::input"></UIElement>
 		<UIElement keyword="确定" by="xpath" value="//button[text()='确定']"></UIElement>
+		<UIElement keyword="确认" by="xpath" value="//button[text()='确认']"></UIElement>
+		<UIElement keyword="取消" by="xpath" value="//button[text()='取消']"></UIElement>
 		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
 		<UIElement keyword="9527" by="xpath" value="//span[contains(text(),'9527')]"></UIElement>
+		<UIElement keyword="员工类别陆涛测试专用" by="xpath" value="//span[contains(text(),'员工类别陆涛测试专用')]"></UIElement>
+		<UIElement keyword="姓名" by="id" value="staff-name"></UIElement>
+		<UIElement keyword="工号" by="id" value="staff-jobNumber"></UIElement>
+		<UIElement keyword="手机" by="id" value="staff-mobilePhone"></UIElement>
+		<UIElement keyword="电话" by="id" value="staff-telephone"></UIElement>staff-nativePlace
+		<UIElement keyword="籍贯" by="id" value="staff-nativePlace"></UIElement>
+		<UIElement keyword="身份证" by="id" value="staff-idNo"></UIElement>
+		<UIElement keyword="出生日期" by="id" value="staff-brithday"></UIElement>
+		<UIElement keyword="入职日期" by="id" value="staff-entryTime"></UIElement>
+		<UIElement keyword="离职日期" by="id" value="staff-quiteTime"></UIElement>
+		<UIElement keyword="职务" by="id" value="staff-duties"></UIElement>
+		<UIElement keyword="QQ" by="id" value="staff-QQ"></UIElement>
+		<UIElement keyword="标签" by="xpath" value="//div[@custom-title='选择标签']"></UIElement>
+		<UIElement keyword="员工标签陆涛测试专用" by="xpath" value="//div[text()='员工标签陆涛测试专用']"></UIElement>
+		<UIElement keyword="邮箱" by="id" value="staff-email"></UIElement>
+		<UIElement keyword="地址" by="id" value="staff-address"></UIElement>
+		<UIElement keyword="保存S" by="xpath" value="//span[text()='保存S']"></UIElement>
+		
 		
 		
 	</Page>

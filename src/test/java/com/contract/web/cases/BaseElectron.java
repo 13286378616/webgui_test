@@ -277,7 +277,7 @@ public class BaseElectron {
 	 * @param element
 	 *            指定的元素
 	 */
-	public void scrollbar(WebElement element) {
+	public void scrollbottom(WebElement element) {
 		// 创建js对象
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// 移动到元素element对象的“底端”与当前窗口的“底部”对齐
