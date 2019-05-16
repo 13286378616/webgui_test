@@ -63,5 +63,6 @@ public class FinanceProfitStatement extends BaseElectron {
 		AssertionUtil.assertTextEqualsNoInterruption(seventeenthName, "五、每股收益：");
 		AssertionUtil.assertTextEqualsNoInterruption(eighteenthName, "(一)基本每股收益");
 		AssertionUtil.assertTextEqualsNoInterruption(nineteenthName, "(二)稀释每股收益");
+		closePage(getElement("财务页", "利润表"));
 	}
 }

@@ -26,6 +26,7 @@
 		<UIElement keyword="我的" by="xpath" value="//span[text()='我的']"></UIElement>
 		<UIElement keyword="销售" by="xpath" value="//span[text()='销售']"></UIElement>
 		<UIElement keyword="财务" by="xpath" value="//span[text()='财务']"></UIElement>
+		<UIElement keyword="资料" by="xpath" value="//span[text()='资料']"></UIElement>
 		<UIElement keyword="关闭页面" by="xpath" value="//a[text()='✕']"></UIElement>
 		<UIElement keyword="采购订货单" by="xpath" value="//span[text()='采购订货单']"></UIElement>
 		<UIElement keyword="采购进仓单" by="xpath" value="//span[text()='采购进仓单']"></UIElement>
@@ -118,6 +119,7 @@
 		<UIElement keyword="客户搜索结果" by="xpath" value="//li[text()='华北客户_陆涛测试专用']"></UIElement>
 		<UIElement keyword="销售报价单校验供应商名称" by="xpath" value="//span[text()='1']/../following-sibling::div[4]"></UIElement>
 		<UIElement keyword="规格" by="xpath" value="//label[text()='规格']/following-sibling::span[1]"></UIElement>
+		<UIElement keyword="送货员" by="xpath" value="//select[@custom-title='送货员']/../span/span[1]/span"></UIElement>
 		
 		
 	</Page>

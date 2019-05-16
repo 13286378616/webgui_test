@@ -23,7 +23,9 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 	 * 销售页3大单据，上传excel商品明细（单价为空）测试用例
 	 * 
 	 * @param slipname
+	 *            销售单名称
 	 * @param purchaseslipName
+	 *            进货单名称
 	 * @throws Exception
 	 */
 	@Test(priority = 0, dataProvider = "slipsNames", enabled = false)
@@ -84,6 +86,12 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 		AssertionUtil.assertTextEqualsNoInterruption(thirdGetIp, "33");
 		String thirdGetSp = getText(getElement("商品明细页", "第三行散价"));
 		AssertionUtil.assertTextEqualsNoInterruption(thirdGetSp, "6.6");
+		// 关闭当前页面
+		Thread.sleep(1000);
+		moveTo(getElement("首页", slipname));
+		Thread.sleep(1000);
+		click(getElement("首页页", "关闭页面"));
+		Thread.sleep(1000);
 
 	}
 
@@ -91,7 +99,9 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 	 * 进货页3大单据，上传excel商品明细（单价为空）测试用例
 	 * 
 	 * @param slipname
+	 *            销售单名称
 	 * @param purchaseslipName
+	 *            进货单名称
 	 * @throws Exception
 	 */
 	@Test(priority = 1, dataProvider = "slipsNames")
@@ -160,6 +170,16 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 		AssertionUtil.assertTextEqualsNoInterruption(thirdGetIp, "33");
 		String thirdGetSp = getText(getElement("商品明细页", "第三行散价"));
 		AssertionUtil.assertTextEqualsNoInterruption(thirdGetSp, "6.6");
+		// // 鼠标操作，用到actions方法
+		// Actions actions = new Actions(driver);
+		// // 鼠标需要移动到页面标题，否则关闭按钮不显示，导致无法点击
+		// Thread.sleep(1000);
+		// actions.moveToElement(getElement("首页页", slipname)).perform();
+		Thread.sleep(1000);
+		moveTo(getElement("首页", purchaseslipName));
+		Thread.sleep(1000);
+		click(getElement("首页页", "关闭页面"));
+		Thread.sleep(1000);
 
 	}
 

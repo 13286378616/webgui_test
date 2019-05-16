@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +19,10 @@ import com.contract.web.pojo.UIElement;
 import com.contract.web.util.AssertionUtil;
 import com.contract.web.util.UILibraryUtil;
 
+/**
+ * @author Administrator
+ *
+ */
 public class BaseElectron {
 	private Logger logger = Logger.getLogger(BaseElectron.class);
 	public static WebDriver driver;
@@ -38,7 +43,7 @@ public class BaseElectron {
 																	// PATH.
 		Thread.sleep(1000);
 		ChromeOptions options = new ChromeOptions();
-		options.setBinary(electronType);// 设置二进制文件，一定用绝对路径，不要用/的写法
+		options.setBinary(electronType);// 设置二进制文件，一定用绝对路径
 		Thread.sleep(1000);
 		DesiredCapabilities capabilities = new DesiredCapabilities();// 负责启动服务端时的参数设置
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);// 将参数options添加到设置中
@@ -243,5 +248,50 @@ public class BaseElectron {
 		String value = element.getText();
 		logger.info("获取元素的文本值：【" + value + "】");
 		return value;
+	}
+
+	/**
+	 * 移动鼠标到指定元素
+	 * 
+	 * @param element
+	 */
+	public void moveTo(WebElement element) {
+		// 鼠标操作，用到actions方法
+		Actions actions = new Actions(driver);
+		// 鼠标需要移动到页面标题，否则关闭按钮不显示，导致无法点击
+		logger.info("移动鼠标到元素：【" + element + "】");
+		actions.moveToElement(element).perform();
+	}
+
+	/**
+	 * 右键点击元素
+	 * 
+	 * @param element
+	 */
+	public void contextClick(WebElement element) {
+		// 鼠标操作，用到actions方法
+		Actions actions = new Actions(driver);
+		// 右键点击元素
+		logger.info("右键点击元素：【" + element + "】");
+		actions.contextClick(element).perform();
+	}
+
+	/**
+	 * 关闭当前页面，点击当前页面的关闭按钮
+	 * 
+	 * @param element
+	 *            当前页面的标题元素
+	 * @throws Exception
+	 */
+	public void closePage(WebElement element) throws Exception {
+		// 鼠标操作，用到actions方法
+		Actions actions = new Actions(driver);
+		// 鼠标需要移动到页面标题，否则关闭按钮不显示，导致无法点击
+		Thread.sleep(3000);
+		logger.info("移动鼠标到元素：【" + element + "】");
+		actions.moveToElement(element).perform();
+		Thread.sleep(2000);
+		click(getElement("首页页", "关闭页面"));
+		Thread.sleep(1000);
 	}
 }

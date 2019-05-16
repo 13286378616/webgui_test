@@ -63,7 +63,7 @@ public class SalesWarehouseReceipt extends BaseElectron {
 		Thread.sleep(1000);
 		click(getElement("进货页", "仓管员搜索结果"));
 		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试销售报价单");
+		sendKeys(getElement("进货页", "备注"), "自动化测试销售出仓单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");

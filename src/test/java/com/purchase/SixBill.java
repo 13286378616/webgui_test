@@ -22,7 +22,7 @@ import com.contract.web.util.ExcelUtil;
  *
  */
 @Listeners({ com.contract.web.util.AssertionListener.class })
-public class PurcharsingOrder extends BaseElectron {
+public class SixBill extends BaseElectron {
 	@Test(priority = 0, dataProvider = "pageNames")
 	public void successCase(String menuname, String pagename) throws Exception {
 		// 切换到最新窗口
@@ -37,7 +37,8 @@ public class PurcharsingOrder extends BaseElectron {
 		Thread.sleep(3000);
 
 		click(getElement("首页页", menuname));
-		click(getElement(menuname, pagename));
+		Thread.sleep(3000);
+		click(getElement("进货页", pagename));
 		Thread.sleep(1000);
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
@@ -56,11 +57,85 @@ public class PurcharsingOrder extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择供应商
-		click(getElement("进货页", "供应商"));
-		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
-		Thread.sleep(1000);
-		click(getElement("进货页", "供应商搜索结果"));
+		// 如果为采购订货单， 销售负责人输入
+		if (pagename.equals("采购订货单")) {
+			// 搜索并选择供应商
+			click(getElement("进货页", "供应商"));
+			sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商搜索结果"));
+			// 获取当前系统日期，并输入合同交货日期
+			Thread.sleep(1000);
+			SimpleDateFormat dateFormat = new SimpleDateFormat(" yyyy-MM-dd ");
+			String currentDate = dateFormat.format(new Date());
+			sendKeys(getElement("进货页", "合同交货日期"), currentDate);
+			// 销售负责人
+			Thread.sleep(1000);
+			sendKeys(getElement("进货页", "销售负责人"), "陆涛");
+			Thread.sleep(1000);
+			sendKeys(getElement("进货页", "备注"), "采购订货单自动化测试");
+		} else if (pagename.equals("采购进仓单")) {
+			// 搜索并选择供应商
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商"));
+			sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商搜索结果"));
+			// 搜索并选择仓管员
+			Thread.sleep(1000);
+			click(getElement("进货页", "仓管员"));
+			sendKeys(getElement("进货页", "搜索"), "陆涛");
+			Thread.sleep(1000);
+			click(getElement("进货页", "仓管员搜索结果"));
+			Thread.sleep(1000);
+			sendKeys(getElement("进货页", "备注"), "采购进仓单自动化测试");
+		} else if (pagename.equals("采购退货单")) {
+			// 搜索并选择供应商
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商"));
+			sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商搜索结果"));
+			sendKeys(getElement("进货页", "备注"), "采购退货单自动化测试");
+		} else if (pagename.equals("销售报价单")) {
+			// 搜索并选择客户
+			Thread.sleep(1000);
+			click(getElement("销售页", "客户"));
+			sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("销售页", "客户搜索结果"));
+			sendKeys(getElement("进货页", "备注"), "销售报价单自动化测试");
+			Thread.sleep(1000);
+		} else if (pagename.equals("销售出仓单")) {
+			// 搜索并选择客户
+			Thread.sleep(1000);
+			click(getElement("销售页", "客户"));
+			sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("销售页", "客户搜索结果"));
+			// 搜索并选择仓管员
+			Thread.sleep(1000);
+			click(getElement("进货页", "仓管员"));
+			sendKeys(getElement("进货页", "搜索"), "陆涛");
+			Thread.sleep(1000);
+			click(getElement("进货页", "仓管员搜索结果"));
+			// 搜索并选择送货员
+			Thread.sleep(1000);
+			click(getElement("销售页", "送货员"));
+			sendKeys(getElement("进货页", "搜索"), "陆涛");
+			Thread.sleep(1000);
+			click(getElement("销售页", "送货员搜索结果"));
+			sendKeys(getElement("进货页", "备注"), "销售出仓单自动化测试");
+		} else {
+			// 搜索并选择客户
+			Thread.sleep(1000);
+			click(getElement("进货页", "客户"));
+			sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("销售页", "客户搜索结果"));
+			// 备注输入
+			sendKeys(getElement("进货页", "备注"), "销售退货单自动化测试");
+		}
 		// 搜素并选择机构
 		Thread.sleep(1000);
 		click(getElement("进货页", "机构"));
@@ -68,38 +143,27 @@ public class PurcharsingOrder extends BaseElectron {
 		Thread.sleep(1000);
 		click(getElement("进货页", "机构搜索结果"));
 		// 搜索并选择业务员
+		Thread.sleep(1000);
 		click(getElement("进货页", "业务员"));
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "业务员搜索结果"));
 		// 搜索并选择经手人
+		Thread.sleep(1000);
 		click(getElement("进货页", "经手人"));
 		sendKeys(getElement("进货页", "搜索"), "陆涛");
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
-		// 如果为采购订货单， 销售负责人输入
-		if (pagename.equals("采购订货单")) {
-			sendKeys(getElement("进货页", "销售负责人"), "销售负责人测试");
-		} else if (pagename.equals("采购进仓单")) {
-			// 搜索并选择仓管员
-			click(getElement("进货页", "仓管员"));
-			sendKeys(getElement("进货页", "搜索"), "陆涛");
-			Thread.sleep(1000);
-			click(getElement("进货页", "仓管员搜索结果"));
-		}
-		sendKeys(getElement("进货页", "销售负责人"), "销售负责人测试");
-		// 备注输入
-		sendKeys(getElement("进货页", "备注"), "自动化测试");
+
 		// 搜索并选择仓库
+		Thread.sleep(1000);
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
 		Thread.sleep(3000);
 		click(getElement("进货页", "仓库搜索结果"));
-		// 获取当前系统日期，并输入合同交货日期
-		SimpleDateFormat dateFormat = new SimpleDateFormat(" yyyy-MM-dd ");
-		String currentDate = dateFormat.format(new Date());
-		sendKeys(getElement("进货页", "合同交货日期"), currentDate);
+
 		// 搜索商品
+		Thread.sleep(1000);
 		sendKeys(getElement("进货页", "品名"), "火腿测试专用");
 		Thread.sleep(3000);
 		// 创建动作对象，并且指定操作的浏览器
@@ -130,7 +194,22 @@ public class PurcharsingOrder extends BaseElectron {
 		// 审核
 		click(getElement("进货页", "审核"));
 		Thread.sleep(3000);
-		click(getElement("进货页", "确认"));
+		if (pagename.equals("采购进仓单")) {
+			sendKeys(getElement("进货页", "结款金额"), "5000");
+			click(getElement("进货页", "确定"));
+		} else if (pagename.equals("采购退货单")) {
+			sendKeys(getElement("进货页", "结款金额"), "5000");
+			click(getElement("进货页", "确定"));
+		} else if (pagename.equals("销售出仓单")) {
+			sendKeys(getElement("进货页", "结款金额"), "5000");
+			click(getElement("进货页", "确定"));
+		} else if (pagename.equals("销售退货单")) {
+			sendKeys(getElement("进货页", "结款金额"), "5000");
+			click(getElement("进货页", "确定"));
+		} else {
+			click(getElement("进货页", "确认"));
+		}
+
 		Thread.sleep(2000);
 		// 点击返回
 		click(getElement("进货页", "返回"));
@@ -173,12 +252,22 @@ public class PurcharsingOrder extends BaseElectron {
 		click(getElement("进货页", "Excel表导入单据明细"));
 		WebElement supplierNullPrompt = getElement("进货页", "提示信息");
 		String nullPrompt = supplierNullPrompt.getText();
-		AssertionUtil.assertTextEquals(nullPrompt, "供应商不能为空");
-		// 搜索并选择供应商
-		click(getElement("进货页", "供应商"));
-		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
-		Thread.sleep(1000);
-		click(getElement("进货页", "供应商搜索结果"));
+		if (menuname.equals("进货")) {
+			AssertionUtil.assertTextEquals(nullPrompt, "供应商不能为空");
+			// 搜索并选择供应商
+			click(getElement("进货页", "供应商"));
+			sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商搜索结果"));
+		} else {
+			AssertionUtil.assertTextEquals(nullPrompt, "客户不能为空");
+			// 搜索并选择客户
+			click(getElement("进货页", "客户"));
+			sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
+			Thread.sleep(1000);
+			click(getElement("进货页", "供应商搜索结果"));
+		}
+
 		click(getElement("进货页", "Excel表导入单据明细"));
 		Thread.sleep(3000);
 		click(getElement("进货页", "浏览"));
@@ -214,7 +303,7 @@ public class PurcharsingOrder extends BaseElectron {
 	@DataProvider(name = "pageNames")
 	public Object[][] pageNameDatas() {
 		String[] cellNames = { "菜单名称", "菜单页面名称" };
-		Object[][] datas = ExcelUtil.read2("src/test/resources/menuName.xlsx", "DL-1", cellNames);
+		Object[][] datas = ExcelUtil.read2("src/test/resources/sixBillName.xlsx", "DL-1", cellNames);
 		return datas;
 
 	}

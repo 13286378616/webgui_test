@@ -163,13 +163,14 @@ public class SalesQuotationSheet extends BaseElectron {
 		Thread.sleep(1000);
 		click(getElement("进货页", "经手人搜索结果"));
 		// 备注测试
-		sendKeys(getElement("进货页", "备注"), "自动化测试采购进仓单");
+		sendKeys(getElement("进货页", "备注"), "自动化测试销售报价单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
 		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
 		Thread.sleep(3000);
 		click(getElement("进货页", "仓库搜索结果"));
 		// 搜索商品
+		Thread.sleep(1000);
 		sendKeys(getElement("进货页", "品名"), "火腿测试专用");
 		Thread.sleep(3000);
 		// 创建动作对象，并且指定操作的浏览器
