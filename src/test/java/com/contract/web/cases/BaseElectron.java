@@ -2,8 +2,8 @@ package com.contract.web.cases;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -25,26 +25,24 @@ import com.contract.web.util.UILibraryUtil;
  */
 public class BaseElectron {
 	private Logger logger = Logger.getLogger(BaseElectron.class);
-	public static WebDriver driver;
+	public static ChromeDriver driver;
 
 	@BeforeSuite
 	@Parameters(value = { "electronType", "driverPath" })
 	public void init(String electronType, String driverPath) throws Exception {
 		logger.info("配置信息：ELectron版本：【" + electronType + "】，驱动文件路径：【" + driverPath + "】");
-		Thread.sleep(1000);
-		System.setProperty("webdriver.chrome.driver", driverPath);// You can
-																	// skip this
-																	// if
-																	// chromedriver
-																	// is
-																	// already
-																	// included
-																	// in the
-																	// PATH.
-		Thread.sleep(1000);
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");// You
+																								// can
+		// skip this
+		// if
+		// chromedriver
+		// is
+		// already
+		// included
+		// in the
+		// PATH.
 		ChromeOptions options = new ChromeOptions();
 		options.setBinary(electronType);// 设置二进制文件，一定用绝对路径
-		Thread.sleep(1000);
 		DesiredCapabilities capabilities = new DesiredCapabilities();// 负责启动服务端时的参数设置
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);// 将参数options添加到设置中
 		Thread.sleep(3000);
@@ -54,7 +52,7 @@ public class BaseElectron {
 		// Now if you open the dev tools using CMD+ALT+I you would notice two
 		// dev tools and first one being for the electron shell. We need to
 		// switch to the second window handle. Let's do that.
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
 			driver.switchTo().window(handle); // Since there are two window
@@ -78,7 +76,7 @@ public class BaseElectron {
 		 * } String loginSuccess = getElement("首页页", "我的").getText();
 		 * AssertionUtil.assertTextEquals(loginSuccess, "我的");
 		 */
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		// 跳转后，会生成新的窗口，所以要跳转到最后这一个窗口，才能找到元素
 		for (String handle : driver.getWindowHandles()) {
 			System.out.println(handle);
@@ -239,6 +237,16 @@ public class BaseElectron {
 	}
 
 	/**
+	 * 点击
+	 * 
+	 * @param element
+	 */
+	public void clear(WebElement element) {
+		logger.info("完成元素的清空事件");
+		element.clear();
+	}
+
+	/**
 	 * 获取元素的文本值
 	 * 
 	 * @param element
@@ -261,6 +269,19 @@ public class BaseElectron {
 		// 鼠标需要移动到页面标题，否则关闭按钮不显示，导致无法点击
 		logger.info("移动鼠标到元素：【" + element + "】");
 		actions.moveToElement(element).perform();
+	}
+
+	/**
+	 * 使用js，滚动条滚动到最底部
+	 * 
+	 * @param element
+	 *            指定的元素
+	 */
+	public void scrollbar(WebElement element) {
+		// 创建js对象
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// 移动到元素element对象的“底端”与当前窗口的“底部”对齐
+		js.executeScript("arguments[0].scrollIntoView(false);", element);
 	}
 
 	/**

@@ -158,5 +158,21 @@
 	<Page keyword='资产负债表页'>
 		<UIElement keyword="资产负债表" by="xpath" value="//span[text()='资产负债表']"></UIElement>
 		
+		
+	</Page>
+	<Page keyword='资料页'>
+		<UIElement keyword="员工档案" by="xpath" value="//div[text()='员工档案']"></UIElement>
+		
+	</Page>
+	<Page keyword='员工档案页'>
+		<UIElement keyword="资产负债表" by="xpath" value="//div[text()='资产负债表']"></UIElement>
+		<UIElement keyword="增加" by="xpath" value="//span[text()='增加']"></UIElement>
+		<UIElement keyword="类型编号" by="xpath" value="//label[text()='类型编号']/following-sibling::input"></UIElement>
+		<UIElement keyword="类型名称" by="xpath" value="//label[text()='类型名称']/following-sibling::input"></UIElement>
+		<UIElement keyword="确定" by="xpath" value="//button[text()='确定']"></UIElement>
+		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
+		<UIElement keyword="9527" by="xpath" value="//span[contains(text(),'9527')]"></UIElement>
+		
+		
 	</Page>
 </Pages>
