@@ -13,7 +13,8 @@ import com.contract.web.util.AssertionUtil;
 @Listeners({ com.contract.web.util.AssertionListener.class })
 public class SalesQuotationSheet extends BaseElectron {
 	/*
-	 * 运行软件：electorn 。框架版本：selenium3.5 +JDK1.8+testng。项目名称：悦商云B2
+	 * 运行软件：electorn 。框架版本：selenium3.5
+	 * +JDK1.8+testng+chromedriver2.33。项目名称：悦商云B2
 	 * 脚本编写人：lutao。脚本创建时间：2019-5-21。脚本修改时间：2019-5-21。修改说明：无。输入参数：无。 输出参数：无。
 	 * 脚本描述：创建销售报价单并且审核。
 	 */
