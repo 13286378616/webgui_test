@@ -13,9 +13,9 @@ import com.contract.web.util.AssertionUtil;
 @Listeners({ com.contract.web.util.AssertionListener.class })
 public class SalesQuotationSheet extends BaseElectron {
 	/*
-	 * 创建销售报价单并且审核
-	 * 
-	 * 
+	 * 运行软件：electorn 。框架版本：selenium3.5 +JDK1.8+testng。项目名称：悦商云B2
+	 * 脚本编写人：lutao。脚本创建时间：2019-5-21。脚本修改时间：2019-5-21。修改说明：无。输入参数：无。 输出参数：无。
+	 * 脚本描述：创建销售报价单并且审核。
 	 */
 	@Test(priority = 0)
 	public void sucessCase() throws Exception {
@@ -64,11 +64,11 @@ public class SalesQuotationSheet extends BaseElectron {
 		// 搜索并选择仓库
 		Thread.sleep(1000);
 		click(getElement("进货页", "仓库"));
-		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
+		sendKeys(getElement("进货页", "搜索"), "华北仓库");
 		Thread.sleep(3000);
 		click(getElement("进货页", "仓库搜索结果"));
 		// 搜索商品
-		sendKeys(getElement("进货页", "品名"), "火腿测试专用");
+		sendKeys(getElement("进货页", "品名"), "火腿");
 		Thread.sleep(3000);
 		// 创建动作对象，并且指定操作的浏览器
 		WebElement goodsname = getElement("进货页", "商品名称");
@@ -116,9 +116,9 @@ public class SalesQuotationSheet extends BaseElectron {
 	}
 
 	/*
-	 * 创建销售报价单并且作废
-	 * 
-	 * 
+	 * 运行软件：electorn 。框架版本：selenium3.5 +JDK1.8+testng。项目名称：悦商云B2
+	 * 脚本编写人：lutao。脚本创建时间：2019-5-21。脚本修改时间：2019-5-21。修改说明：无。输入参数：无。 输出参数：无。
+	 * 脚本描述：创建销售报价单并且作废
 	 */
 	@Test(priority = 1)
 	public void faildCase() throws Exception {
@@ -166,12 +166,12 @@ public class SalesQuotationSheet extends BaseElectron {
 		sendKeys(getElement("进货页", "备注"), "自动化测试销售报价单");
 		// 搜索并选择仓库
 		click(getElement("进货页", "仓库"));
-		sendKeys(getElement("进货页", "搜索"), "华北仓库1_陆涛测试专用");
+		sendKeys(getElement("进货页", "搜索"), "华北仓库");
 		Thread.sleep(3000);
 		click(getElement("进货页", "仓库搜索结果"));
 		// 搜索商品
 		Thread.sleep(1000);
-		sendKeys(getElement("进货页", "品名"), "火腿测试专用");
+		sendKeys(getElement("进货页", "品名"), "火腿");
 		Thread.sleep(3000);
 		// 创建动作对象，并且指定操作的浏览器
 		WebElement goodsname = getElement("进货页", "商品名称");
@@ -205,4 +205,71 @@ public class SalesQuotationSheet extends BaseElectron {
 		// 校验是否自动返回首页，是否存在新单元素
 		AssertionUtil.ElementExist(driver, By.xpath("//span[text()='新单N']"));
 	}
+
+	/**
+	 * 运行软件：electorn 。框架版本：selenium3.5 +JDK1.8+testng。项目名称：悦商云B2
+	 * 脚本编写人：lutao。脚本创建时间：2019-5-21。脚本修改时间：2019-5-21。修改说明：无。输入参数：无。 输出参数：无。
+	 * 脚本描述：导入excel明细是否成功
+	 * 
+	 * @throws Exception
+	 */
+	@Test(priority = 2)
+	public void importExcel() throws Exception {
+		click(getElement("首页页", "销售"));
+		click(getElement("进货页", "销售报价单"));
+		click(getElement("进货页", "新单"));
+		Thread.sleep(3000);
+
+		// 判断是否使用旧的单据，这里选择否
+		boolean cElement = AssertionUtil.ElementExist(driver, By.xpath("//p[text()='当前用户今天有一份空单未使用，调出来使用吗？']"));
+		System.out.println("空单是否存在：" + cElement);
+		if (cElement == true) {
+			// 存在空单，这里选择否
+			click(getElement("进货页", "否"));
+		} else {
+			System.out.println("没有旧空白单据使用");
+		}
+		Thread.sleep(3000);
+		// 搜索并选择供应商
+		click(getElement("进货页", "供应商"));
+		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+		Thread.sleep(1000);
+		click(getElement("进货页", "供应商搜索结果"));
+		// 搜索并选择机构
+		click(getElement("进货页", "机构"));
+		sendKeys(getElement("进货页", "搜索"), "华北机构_陆涛测试专用");
+		Thread.sleep(1000);
+		click(getElement("进货页", "机构搜索结果"));
+
+		Thread.sleep(1000);
+		click(getElement("进货页", "Excel表导入单据明细"));
+		Thread.sleep(3000);
+		click(getElement("进货页", "浏览"));
+		Thread.sleep(5000);
+		// 调用autoit的脚本
+		Runtime.getRuntime().exec("src/test/resources/upfileUnitpricenull.exe");
+		Thread.sleep(6000);
+		click(getElement("进货页", "导入"));
+		Thread.sleep(2000);
+		// excel表导入明细导入后，提示信息校验
+		WebElement goodsDetailImport = getElement("进货页", "提示信息");
+		String goodsImport = goodsDetailImport.getText();
+		AssertionUtil.assertTextEqualsNoInterruption(goodsImport, "导入明细成功");
+		Thread.sleep(3000);
+		// 校验导入成功的行数是否为3
+		String importLineNumber = getElement("进货页", "导入成功").getAttribute("textContent");
+		AssertionUtil.assertTextEqualsNoInterruption(importLineNumber, "3");
+		System.out.println(
+				driver.findElement(By.xpath("//*[@id='modal-body']/div[2]/div[2]")).getAttribute("textContent"));
+		click(getElement("进货页", "关闭"));
+		Thread.sleep(1000);
+		// 关闭当前页面
+		Thread.sleep(1000);
+		moveTo(getElement("首页页", "销售报价单"));
+		Thread.sleep(1000);
+		click(getElement("首页页", "关闭页面"));
+		Thread.sleep(1000);
+
+	}
+
 }

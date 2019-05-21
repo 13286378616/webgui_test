@@ -162,6 +162,7 @@
 	</Page>
 	<Page keyword='资料页'>
 		<UIElement keyword="员工档案" by="xpath" value="//div[text()='员工档案']"></UIElement>
+		<UIElement keyword="客户档案" by="xpath" value="//div[text()='客户档案']"></UIElement>
 		
 	</Page>
 	<Page keyword='员工档案页'>
@@ -192,8 +193,19 @@
 		<UIElement keyword="员工标签陆涛测试专用" by="xpath" value="//div[text()='员工标签陆涛测试专用']"></UIElement>
 		<UIElement keyword="邮箱" by="id" value="staff-email"></UIElement>
 		<UIElement keyword="地址" by="id" value="staff-address"></UIElement>
-		<UIElement keyword="保存S" by="xpath" value="//span[text()='保存S']"></UIElement>
-		
+		<UIElement keyword="保存S" by="xpath" value="//span[text()='保存S']"></UIElement>	
+	</Page>
+	<Page keyword='客户档案页'>
+		<UIElement keyword="增加" by="xpath" value="//span[text()='增加']"></UIElement>
+		<UIElement keyword="类型编号" by="xpath" value="//span[text()='类型编号']/../following-sibling::input"></UIElement>
+		<UIElement keyword="类型名称" by="xpath" value="//span[text()='类型名称']/../following-sibling::input"></UIElement>
+		<UIElement keyword="确定" by="xpath" value="//button[text()='确定']"></UIElement>
+		<UIElement keyword="确认" by="xpath" value="//button[text()='确认']"></UIElement>
+		<UIElement keyword="取消" by="xpath" value="//button[text()='取消']"></UIElement>
+		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
+		<UIElement keyword="名称" by="id" value="customer-name"></UIElement>
+		<UIElement keyword="联系人" by="id" value="customer-contact"></UIElement>
+		<UIElement keyword="业务员" by="xpath" value="//span[@id='select2-customer-employee-container']/following-sibling::span"></UIElement>
 		
 		
 	</Page>

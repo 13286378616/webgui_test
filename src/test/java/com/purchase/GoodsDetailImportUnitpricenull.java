@@ -175,6 +175,7 @@ public class GoodsDetailImportUnitpricenull extends BaseElectron {
 		// // 鼠标需要移动到页面标题，否则关闭按钮不显示，导致无法点击
 		// Thread.sleep(1000);
 		// actions.moveToElement(getElement("首页页", slipname)).perform();
+		// 关闭当前页面
 		Thread.sleep(1000);
 		moveTo(getElement("首页", purchaseslipName));
 		Thread.sleep(1000);
