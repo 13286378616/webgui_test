@@ -39,7 +39,7 @@ public class SalesQuotationSheet extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择供应商
+		// 搜索并选择客户
 		click(getElement("销售页", "客户"));
 		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
 		Thread.sleep(1000);
@@ -105,8 +105,8 @@ public class SalesQuotationSheet extends BaseElectron {
 		// 校验是否生成新的订货单
 		/*
 		 * String suppliername = getElement("销售页",
-		 * "销售报价单校验供应商名称").getAttribute("textContent");
-		 * System.out.println("订单校验供应商名称:" + suppliername);
+		 * "销售报价单校验客户名称").getAttribute("textContent");
+		 * System.out.println("订单校验客户名称:" + suppliername);
 		 * AssertionUtil.assertTextEqualsNoInterruption(suppliername,
 		 * "华北客户_陆涛测试专用");
 		 */
@@ -142,7 +142,7 @@ public class SalesQuotationSheet extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择供应商
+		// 搜索并选择客户
 		click(getElement("销售页", "客户"));
 		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
 		Thread.sleep(1000);
@@ -230,11 +230,11 @@ public class SalesQuotationSheet extends BaseElectron {
 			System.out.println("没有旧空白单据使用");
 		}
 		Thread.sleep(3000);
-		// 搜索并选择供应商
-		click(getElement("进货页", "供应商"));
-		sendKeys(getElement("进货页", "搜索"), "华北供应商_陆涛测试专用");
+		// 搜索并选择客户
+		click(getElement("销售页", "客户"));
+		sendKeys(getElement("进货页", "搜索"), "华北客户_陆涛测试专用");
 		Thread.sleep(1000);
-		click(getElement("进货页", "供应商搜索结果"));
+		click(getElement("销售页", "客户搜索结果"));
 		// 搜索并选择机构
 		click(getElement("进货页", "机构"));
 		sendKeys(getElement("进货页", "搜索"), "华北机构_陆涛测试专用");
