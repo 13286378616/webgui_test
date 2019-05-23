@@ -206,6 +206,42 @@
 		<UIElement keyword="名称" by="id" value="customer-name"></UIElement>
 		<UIElement keyword="联系人" by="id" value="customer-contact"></UIElement>
 		<UIElement keyword="业务员" by="xpath" value="//span[@id='select2-customer-employee-container']/following-sibling::span"></UIElement>
+		<UIElement keyword="业务员搜索结果" by="xpath" value="//li[@title='陆涛']"></UIElement>
+		<UIElement keyword="电话" by="id" value="customer-telephone"></UIElement>
+		<UIElement keyword="手机" by="id" value="customer-mobilePhone"></UIElement>
+		<UIElement keyword="传真" by="id" value="customer-fax"></UIElement>
+		<UIElement keyword="地址" by="id" value="customer-address"></UIElement>
+		<UIElement keyword="邮编" by="id" value="customer-postCode"></UIElement>
+		<UIElement keyword="配送路线" by="xpath" value="//label[text()='配送路线']/following-sibling::div"></UIElement>
+		<UIElement keyword="开户行" by="id" value="customer-bank"></UIElement>
+		<UIElement keyword="开户账号" by="id" value="customer-bankAccount"></UIElement>
+		<UIElement keyword="信用额" by="id" value="customer-creditAmount"></UIElement>
+		<UIElement keyword="售价方式" by="xpath" value="//label[text()='售价方式']/following-sibling::div"></UIElement>
+		
+		<UIElement keyword="价格策略" by="xpath" value="//label[text()='价格策略']/following-sibling::div"></UIElement>
+		
+		<UIElement keyword="跟踪销售" by="xpath" value="//label[text()='跟踪销售']/following-sibling::button"></UIElement>
+		<UIElement keyword="跟踪折扣" by="xpath" value="//label[text()='跟踪折扣']/following-sibling::button"></UIElement>
+		<UIElement keyword="不允许改价" by="xpath" value="//label[text()='不允许改价']/following-sibling::button"></UIElement>
+		<UIElement keyword="收款上浮率" by="id" value="customer-floatingRate"></UIElement>
+		<UIElement keyword="累计积分" by="id" value="customer-cumulativePoint"></UIElement>
+		<UIElement keyword="网站" by="id" value="customer-webside"></UIElement>
+		<UIElement keyword="标签" by="xpath" value="//label[text()='标签']/following-sibling::div"></UIElement>
+		
+		<UIElement keyword="邮箱" by="id" value="customer-email"></UIElement>
+		<UIElement keyword="结业" by="xpath" value="//label[text()='结业']/following-sibling::button"></UIElement>
+		<UIElement keyword="关联供应商" by="xpath" value="//label[text()='关联供应商']/following-sibling::span"></UIElement>
+		<UIElement keyword="信用额" by="id" value="customer-creditAmount"></UIElement>
+		<UIElement keyword="信用额" by="id" value="customer-creditAmount"></UIElement>
+		
+		<UIElement keyword="修改R" by="xpath" value="//span[text()='修改R']"></UIElement>
+		<UIElement keyword="增加A" by="xpath" value="//span[text()='增加A']"></UIElement>
+		<UIElement keyword="删除D" by="xpath" value="//span[text()='删除D']"></UIElement>
+		<UIElement keyword="95270001" by="xpath" value="//div[text()='95270001']"></UIElement>
+		<UIElement keyword="保存S" by="xpath" value="//span[text()='保存S']"></UIElement>
+		<UIElement keyword="9527" by="xpath" value="//a[contains(@title,'9527')]"></UIElement>
+		<UIElement keyword="修改后名称" by="xpath" value="//div[text()='95270001']/following-sibling::div"></UIElement>
+		<UIElement keyword="提示信息" by="id" value="toast"></UIElement>
 		
 		
 	</Page>
