@@ -20,7 +20,8 @@
     <!-- 测试版本路径：F:\\软件包\\B2\\B2测试\\B2.exe" -->
     <!-- 线上版本路径：D:/悦商云B2/B2线上版本/B2.exe" -->
     <!-- 公测版本路径：D:/悦商云B2/B2公测版本/B2.exe" -->
-    <parameter name="electronType" value="D:/悦商云B2/B2线上版本/B2.exe"></parameter>
+    <!-- 内测版本路径：D:\\悦商云B2\\B2内测版本\\B2.exe" -->
+    <parameter name="electronType" value="F:\\软件包\\B2\\B2测试\\B2.exe"></parameter>
     <!-- 驱动文件的相对路径  -->
     <parameter name="driverPath" value="src/test/resources/chromedriver.exe"></parameter>
     <parameter name="loginusername" value="13286378616"></parameter>
