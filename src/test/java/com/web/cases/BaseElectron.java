@@ -1,4 +1,4 @@
-package com.contract.web.cases;
+package com.web.cases;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,9 +15,9 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.contract.web.pojo.UIElement;
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.UILibraryUtil;
+import com.ui.web.util.AssertionUtil;
+import com.ui.web.util.UILibraryUtil;
+import com.web.pojo.UIElement;
 
 /**
  * @author Administrator

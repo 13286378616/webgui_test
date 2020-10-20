@@ -1,4 +1,4 @@
-package com.contract.web.cases;
+package com.web.cases;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -6,8 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.ExcelUtil;
+import com.ui.web.util.AssertionUtil;
+import com.ui.web.util.ExcelUtil;
 
 public class RegisterCase2v2 extends Base{
 	private Logger logger = Logger.getLogger(RegisterCase2v2.class);

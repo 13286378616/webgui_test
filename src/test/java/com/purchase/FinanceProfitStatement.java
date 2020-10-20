@@ -3,8 +3,8 @@ package com.purchase;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.BaseElectron;
-import com.contract.web.util.AssertionUtil;
+import com.ui.web.util.AssertionUtil;
+import com.web.cases.BaseElectron;
 
 /**
  * 财务利润表-查看列表字段是否与需求一致
@@ -12,7 +12,7 @@ import com.contract.web.util.AssertionUtil;
  * @author Administrator
  *
  */
-@Listeners({ com.contract.web.util.AssertionListener.class })
+@Listeners({ com.ui.web.util.AssertionListener.class })
 public class FinanceProfitStatement extends BaseElectron {
 	@Test(priority = 0)
 	public void sucessCase() throws Exception {

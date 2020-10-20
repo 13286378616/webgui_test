@@ -1,4 +1,4 @@
-package com.contract.web.cases;
+package com.web.cases;
 
 import java.sql.Driver;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import com.contract.web.util.AssertionUtil;
+import com.ui.web.util.AssertionUtil;
 
 public class NewOutputList extends Base{
 	private Logger logger = Logger.getLogger(NewOutputList.class);

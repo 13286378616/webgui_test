@@ -1,4 +1,4 @@
-package com.contract.web.pojo;
+package com.web.pojo;
 
 /**页面元素对象类型
  * @author Administrator

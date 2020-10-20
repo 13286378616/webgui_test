@@ -1,4 +1,4 @@
-package com.contract.web.util;
+package com.ui.web.util;
 
 import java.io.File;
 

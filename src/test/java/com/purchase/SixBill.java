@@ -11,9 +11,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.BaseElectron;
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.ExcelUtil;
+import com.ui.web.util.AssertionUtil;
+import com.ui.web.util.ExcelUtil;
+import com.web.cases.BaseElectron;
 
 /**
  * 进货页-采购订货单，新建订单-审核，作废用例 导入商品明细测试用例
@@ -21,7 +21,7 @@ import com.contract.web.util.ExcelUtil;
  * @author Administrator
  *
  */
-@Listeners({ com.contract.web.util.AssertionListener.class })
+@Listeners({ com.ui.web.util.AssertionListener.class })
 public class SixBill extends BaseElectron {
 	@Test(priority = 0, dataProvider = "pageNames")
 	public void successCase(String menuname, String pagename) throws Exception {

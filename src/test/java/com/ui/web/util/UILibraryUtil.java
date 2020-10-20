@@ -1,4 +1,4 @@
-package com.contract.web.util;
+package com.ui.web.util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import com.contract.web.pojo.Page;
-import com.contract.web.pojo.UIElement;
+import com.web.pojo.Page;
+import com.web.pojo.UIElement;
 
 
 /**解析ui库，提供页面元素的信息

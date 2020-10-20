@@ -1,4 +1,4 @@
-package com.contract.web.util;
+package com.ui.web.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import com.contract.web.cases.Base;
+import com.web.cases.Base;
 
 public class ScreenUtil {
 

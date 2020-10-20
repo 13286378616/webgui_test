@@ -1,4 +1,4 @@
-package com.contract.web.cases;
+package com.web.cases;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.contract.web.pojo.UIElement;
-import com.contract.web.util.UILibraryUtil;
+import com.ui.web.util.UILibraryUtil;
+import com.web.pojo.UIElement;
 
 public class Base2 {
 	public static WebDriver driver;

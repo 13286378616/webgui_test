@@ -7,10 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.BaseElectron;
-import com.contract.web.util.AssertionUtil;
+import com.ui.web.util.AssertionUtil;
+import com.web.cases.BaseElectron;
 
-@Listeners({ com.contract.web.util.AssertionListener.class })
+@Listeners({ com.ui.web.util.AssertionListener.class })
 public class PurchasingWarehouseReceipt extends BaseElectron {
 	/*
 	 * 运行软件：electorn 。框架版本：selenium3.5 +JDK1.8+testng。项目名称：悦商云B2

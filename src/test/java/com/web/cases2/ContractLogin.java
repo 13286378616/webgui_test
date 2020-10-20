@@ -1,11 +1,11 @@
-package com.contract.web.cases2;
+package com.web.cases2;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.Base;
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.ExcelUtil;
+import com.ui.web.util.AssertionUtil;
+import com.ui.web.util.ExcelUtil;
+import com.web.cases.Base;
 
 public class ContractLogin extends Base{
 	@Test(dataProvider="faildCaseDatasmobile",priority=0)

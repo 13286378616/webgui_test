@@ -6,9 +6,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.BaseElectron;
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.ExcelUtil;
+import com.ui.web.util.AssertionUtil;
+import com.ui.web.util.ExcelUtil;
+import com.web.cases.BaseElectron;
 
 /**
  * 销售页和进货页-6大单据，上传excel商品明细（单价为空）测试用例
@@ -17,7 +17,7 @@ import com.contract.web.util.ExcelUtil;
  * @author Administrator
  *
  */
-@Listeners({ com.contract.web.util.AssertionListener.class })
+@Listeners({ com.ui.web.util.AssertionListener.class })
 public class GoodsDetailImportUnitpricenull extends BaseElectron {
 	/**
 	 * 销售页3大单据，上传excel商品明细（单价为空）测试用例

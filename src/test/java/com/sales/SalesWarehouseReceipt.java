@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.BaseElectron;
-import com.contract.web.util.AssertionUtil;
+import com.ui.web.util.AssertionUtil;
+import com.web.cases.BaseElectron;
 
 public class SalesWarehouseReceipt extends BaseElectron {
 	/*

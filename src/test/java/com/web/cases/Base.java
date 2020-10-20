@@ -1,6 +1,4 @@
-package com.contract.web.cases;
-
-import java.util.List;
+package com.web.cases;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -16,17 +14,16 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.contract.web.pojo.UIElement;
-import com.contract.web.util.AssertionUtil;
-import com.contract.web.util.UILibraryUtil;
+import com.ui.web.util.UILibraryUtil;
+import com.web.pojo.UIElement;
 
-public class Base3 {
-	private Logger logger = Logger.getLogger(Base3.class);
+public class Base {
+	private Logger logger = Logger.getLogger(Base.class);
 	public static WebDriver driver;
 	
 	@BeforeSuite
-	@Parameters(value={"browserType","driverPath","loginusername","loginpassword"})
-	public void init(String browserType,String driverPath,String loginusername,String loginpassword){
+	@Parameters(value={"browserType","driverPath"})
+	public void init(String browserType,String driverPath){
 		logger.info("配置信息：浏览器类型：【"+browserType+"】，驱动文件路径：【"+driverPath+"】");
 		if("ie".equalsIgnoreCase(browserType)){//如果是ie
 			System.setProperty("webdriver.ie.driver", "src/test/resources/IEDriverServer.exe");
@@ -52,40 +49,6 @@ public class Base3 {
 			 logger.info("*************创建了chrome驱动对象，打开了chrome浏览器，开始测试*****************");
 		}
 		driver.manage().window().maximize();
-		to("http://gs.bndxqc.com/login.html");
-		//getElement("登录页", "用户名").sendKeys(loginusername);
-		sendKeys(getElement("登录页", "用户名"), loginusername);
-		//getElement("登录页", "密码").sendKeys(loginpassword);
-		sendKeys(getElement("登录页", "密码"),loginpassword );
-		//getElement("登录页", "登录").click();
-		click(getElement("登录页", "登录"));
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//点击客户企业
-//		List<WebElement> testelements = driver.findElements(By.className("layui-field-box"));
-//		String actual = testelements.get(1).getText();
-//		Assert.assertEquals(actual, expected);
-//		testelements.get(1).click();
-//		getElement(By.xpath("//div[text()='客户企业（测试）']")).click();;
-		click(getElement("登录页", "客户企业（测试）"));
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String conpanyActual = getElement(By.id("companyName")).getText();
-		AssertionUtil.assertTextEquals(conpanyActual, "运营企业");
-		//点击企业
-		//getElement(By.id("25")).findElement(By.className("l-btn-text")).click();
-		//getElement("主页", "企业").findElement(By.className("l-btn-text")).click();
-		click(getElement("主页", "企业"));
-		
-		
 	}
 	@AfterSuite
 	public void tearDown() throws InterruptedException{
@@ -98,7 +61,7 @@ public class Base3 {
 	 * @return
 	 */
 	public WebElement getElement(By locator){
-		WebDriverWait wait = new WebDriverWait(driver, 120);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		try {
 			WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			logger.info("元素定位成功");
@@ -163,9 +126,17 @@ public class Base3 {
 	/**访问测试页面
 	 * @param url 页面地址
 	 */
-	public void to(String url){
+	public void totesturl(String url){
 		logger.info("访问测试页面：【"+url+"】");
 		driver.navigate().to(url);
+	}
+	
+	/**回退测试页面
+	 * 
+	 */
+	public void back(){
+		logger.info("回退测试页面");
+		driver.navigate().back();
 	}
 	
 	/**

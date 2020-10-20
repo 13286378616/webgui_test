@@ -1,4 +1,4 @@
-package com.contract.web.util;
+package com.ui.web.util;
 import java.util.ArrayList;
 import java.util.List;
 import org.testng.ITestResult;

@@ -1,4 +1,4 @@
-package com.contract.web.listener;
+package com.web.listener;
 
 import java.io.File;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 
-import com.contract.web.util.ScreenUtil;
+import com.ui.web.util.ScreenUtil;
 
 
 /*通过继承TestListenerAdapter来自定义一个监听器

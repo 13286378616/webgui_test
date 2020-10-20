@@ -1,4 +1,4 @@
-package com.contract.web.cases2;
+package com.web.cases2;
 
 import java.util.Set;
 
@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.contract.web.cases.Base;
-import com.contract.web.util.AssertionUtil;
+import com.ui.web.util.AssertionUtil;
+import com.web.cases.Base;
 
 public class Contractshouye extends Base{
 	@Test(priority = 0)
